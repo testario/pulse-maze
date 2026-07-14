@@ -71,7 +71,7 @@ describe('collision', () => {
     const updatedPosition = updatePlayer(
       playerPosition,
       maze,
-      { angularDirection: 1, radialDirection: 1 },
+      { angularDirection: 1, radialFactor: 1 },
       0.1,
     )
 

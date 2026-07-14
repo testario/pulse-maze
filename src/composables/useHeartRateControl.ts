@@ -1,4 +1,4 @@
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 import {
   DEBUG_HEART_RATE_STEP_BPM,
@@ -6,30 +6,23 @@ import {
   MAX_VALID_BPM,
   MIN_VALID_BPM,
 } from '../game/config'
-import { getRadialDirection, smoothBpm } from '../game/heartRate'
+import { smoothBpm } from '../game/heartRate'
 import { clamp } from '../utils/clamp'
 
 const DEBUG_HEART_RATE_QUERY_KEY = 'debugHeartRate'
+const isDebugHeartRate = ref(isDebugHeartRateEnabled())
+const rawBpm = ref(HEART_RATE_BASELINE_BPM)
+const smoothedBpm = ref(HEART_RATE_BASELINE_BPM)
+const lastMeasurementAt = ref<number | null>(isDebugHeartRate.value ? performance.now() : null)
 
 /** Управляет виртуальным BPM, доступным только в debug-режиме. */
 export function useHeartRateControl() {
-  const isDebugHeartRate = ref(isDebugHeartRateEnabled())
-  const baselineBpm = ref(HEART_RATE_BASELINE_BPM)
-  const rawBpm = ref(HEART_RATE_BASELINE_BPM)
-  const smoothedBpm = ref(HEART_RATE_BASELINE_BPM)
-  const radialDirection = computed(() => {
-    if (!isDebugHeartRate.value) {
-      return 0
-    }
-
-    return getRadialDirection(smoothedBpm.value, baselineBpm.value)
-  })
-
   function updateRawBpm(nextBpm: number) {
     const nextRawBpm = clamp(nextBpm, MIN_VALID_BPM, MAX_VALID_BPM)
 
     rawBpm.value = nextRawBpm
     smoothedBpm.value = smoothBpm(smoothedBpm.value, nextRawBpm)
+    lastMeasurementAt.value = performance.now()
   }
 
   function handleKeyDown(event: KeyboardEvent) {
@@ -60,15 +53,24 @@ export function useHeartRateControl() {
   })
 
   return {
-    baselineBpm,
     isDebugHeartRate,
-    radialDirection,
+    lastMeasurementAt,
     rawBpm,
     smoothedBpm,
   }
 }
 
-function isDebugHeartRateEnabled(): boolean {
+/** Возвращает общее debug-состояние без подключения DOM-обработчиков. */
+export function getDebugHeartRateState() {
+  return {
+    isDebugHeartRate,
+    lastMeasurementAt,
+    rawBpm,
+    smoothedBpm,
+  }
+}
+
+export function isDebugHeartRateEnabled(): boolean {
   if (typeof window === 'undefined') {
     return false
   }

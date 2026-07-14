@@ -5,4 +5,3 @@ export interface PolarPosition {
 }
 
 export type AngularDirection = -1 | 0 | 1
-export type RadialDirection = -1 | 0 | 1

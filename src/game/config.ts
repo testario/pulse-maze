@@ -5,13 +5,19 @@ export const PLAYER_RADIUS = 7
 export const PLAYER_WALL_CLEARANCE = 2
 
 export const HEART_RATE_BASELINE_BPM = 70
-export const HEART_RATE_OUTWARD_THRESHOLD = 8
-export const HEART_RATE_INWARD_THRESHOLD = 3
 export const HEART_RATE_RADIAL_SPEED = 60
 export const HEART_RATE_SMOOTHING_FACTOR = 0.15
 export const MIN_VALID_BPM = 35
 export const MAX_VALID_BPM = 220
 export const DEBUG_HEART_RATE_STEP_BPM = 1
+export const CALIBRATION_DURATION_MS = 20_000
+export const HEART_RATE_NEUTRAL_OFFSET_BPM = 15
+export const HEART_RATE_INWARD_FULL_OFFSET_BPM = -10
+export const HEART_RATE_OUTWARD_FULL_OFFSET_BPM = 20
+export const RADIAL_FACTOR_MIN = -1
+export const RADIAL_FACTOR_MAX = 1
+export const STALE_BPM_TIMEOUT_MS = 3_000
+export const MAX_SESSION_DURATION_MS = 10 * 60 * 1_000
 
 export const MAZE_RING_COUNT = 5
 export const MAZE_SECTOR_COUNT = 12

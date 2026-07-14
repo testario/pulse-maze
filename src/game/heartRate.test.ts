@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { getRadialDirection, smoothBpm } from './heartRate'
+import { getRadialFactor, parseHeartRateMeasurement, smoothBpm } from './heartRate'
 
 describe('heartRate', () => {
   it('сглаживает BPM экспоненциальным методом', () => {
@@ -8,14 +8,33 @@ describe('heartRate', () => {
     expect(smoothBpm(70, 90, 0.5)).toBe(80)
   })
 
-  it('определяет направление за пределами нейтрального диапазона', () => {
-    expect(getRadialDirection(79, 70)).toBe(1)
-    expect(getRadialDirection(66, 70)).toBe(-1)
+  it('возвращает полный фактор на заданных границах', () => {
+    expect(getRadialFactor(60, 70)).toBe(-1)
+    expect(getRadialFactor(85, 70)).toBe(0)
+    expect(getRadialFactor(105, 70)).toBe(1)
   })
 
-  it('останавливает движение на порогах и в нейтральном диапазоне', () => {
-    expect(getRadialDirection(78, 70)).toBe(0)
-    expect(getRadialDirection(67, 70)).toBe(0)
-    expect(getRadialDirection(70, 70)).toBe(0)
+  it('линейно интерполирует фактор в асимметричных промежуточных диапазонах', () => {
+    expect(getRadialFactor(72.5, 70)).toBeCloseTo(-0.5)
+    expect(getRadialFactor(95, 70)).toBeCloseTo(0.5)
+    expect(getRadialFactor(40, 70)).toBe(-1)
+    expect(getRadialFactor(130, 70)).toBe(1)
+  })
+
+  it('читает 8-битный BPM из BLE Heart Rate Measurement', () => {
+    const value = new DataView(new Uint8Array([0b00000000, 72]).buffer)
+
+    expect(parseHeartRateMeasurement(value)).toBe(72)
+  })
+
+  it('читает 16-битный BPM из BLE Heart Rate Measurement', () => {
+    const value = new DataView(new Uint8Array([0b00000001, 0x2c, 0x01]).buffer)
+
+    expect(parseHeartRateMeasurement(value)).toBe(300)
+  })
+
+  it('отклоняет неполные BLE-измерения', () => {
+    expect(parseHeartRateMeasurement(new DataView(new ArrayBuffer(0)))).toBeNull()
+    expect(parseHeartRateMeasurement(new DataView(new Uint8Array([1, 72]).buffer))).toBeNull()
   })
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import {
   MAZE_CENTER_RADIUS,
@@ -11,18 +11,20 @@ import { getSectorForAngle } from '../game/maze/mazeNeighbors'
 import type { PolarMaze } from '../game/maze/mazeTypes'
 import { getRingForRadius } from '../game/player/collision'
 import { updatePlayer } from '../game/player/updatePlayer'
+import { hasPlayerWon } from '../game/player/win'
 import { renderGame } from '../game/render/renderGame'
 import type { PolarPosition } from '../game/types'
 import { useGameLoop } from '../composables/useGameLoop'
+import { useGameSession } from '../composables/useGameSession'
 import { useHeartRateControl } from '../composables/useHeartRateControl'
 import { useKeyboardInput } from '../composables/useKeyboardInput'
 
 const containerElement = ref<HTMLDivElement | null>(null)
 const canvasElement = ref<HTMLCanvasElement | null>(null)
 
-const maze = generateMaze()
+const maze = ref(generateMaze())
 
-const playerPosition = ref(createPlayerStartPosition(maze))
+const playerPosition = ref(createPlayerStartPosition(maze.value))
 
 let context: CanvasRenderingContext2D | null = null
 let canvasSize = 0
@@ -30,12 +32,17 @@ let resizeObserver: ResizeObserver | null = null
 
 const { getAngularDirection } = useKeyboardInput()
 const {
-  baselineBpm,
   isDebugHeartRate,
-  radialDirection,
   rawBpm,
   smoothedBpm,
 } = useHeartRateControl()
+const {
+  finishGame,
+  gameState,
+  mazeVersion,
+  radialFactor,
+  restingBpm,
+} = useGameSession()
 
 const debugCell = computed(() => getDebugCell(playerPosition.value))
 
@@ -44,13 +51,20 @@ const { startGameLoop, stopGameLoop } = useGameLoop((deltaTime) => {
     return
   }
 
-  playerPosition.value = updatePlayer(
-    playerPosition.value,
-    maze,
-    { angularDirection: getAngularDirection(), radialDirection: radialDirection.value },
-    deltaTime,
-  )
-  renderGame(context, canvasSize, maze, playerPosition.value)
+  if (gameState.value === 'playing') {
+    playerPosition.value = updatePlayer(
+      playerPosition.value,
+      maze.value,
+      { angularDirection: getAngularDirection(), radialFactor: radialFactor.value },
+      deltaTime,
+    )
+
+    if (hasPlayerWon(maze.value, playerPosition.value)) {
+      finishGame()
+    }
+  }
+
+  renderGame(context, canvasSize, maze.value, playerPosition.value)
 })
 
 function resizeCanvas() {
@@ -83,7 +97,7 @@ function resizeCanvas() {
   context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0)
   canvasSize = size
 
-  renderGame(context, canvasSize, maze, playerPosition.value)
+  renderGame(context, canvasSize, maze.value, playerPosition.value)
 }
 
 function createPlayerStartPosition(maze: PolarMaze): PolarPosition {
@@ -102,6 +116,11 @@ function getDebugCell(position: PolarPosition): string {
 
   return `Кольцо ${ring + 1}, сектор ${getSectorForAngle(position.angle) + 1}`
 }
+
+watch(mazeVersion, () => {
+  maze.value = generateMaze()
+  playerPosition.value = createPlayerStartPosition(maze.value)
+})
 
 onMounted(() => {
   resizeCanvas()
@@ -130,7 +149,7 @@ onBeforeUnmount(() => {
       <dl>
         <div>
           <dt>Базовый BPM</dt>
-          <dd>{{ baselineBpm }}</dd>
+          <dd>{{ restingBpm ?? '—' }}</dd>
         </div>
         <div>
           <dt>Raw BPM</dt>

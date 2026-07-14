@@ -1,11 +1,17 @@
-import { ANGULAR_SPEED, HEART_RATE_RADIAL_SPEED } from '../config'
+import {
+  ANGULAR_SPEED,
+  HEART_RATE_RADIAL_SPEED,
+  RADIAL_FACTOR_MAX,
+  RADIAL_FACTOR_MIN,
+} from '../config'
 import type { PolarMaze } from '../maze/mazeTypes'
-import type { AngularDirection, PolarPosition, RadialDirection } from '../types'
+import type { AngularDirection, PolarPosition } from '../types'
 import { resolveAngularCollision, resolveRadialCollision } from './collision'
+import { clamp } from '../../utils/clamp'
 
 export interface PlayerInput {
   angularDirection: AngularDirection
-  radialDirection: RadialDirection
+  radialFactor: number
 }
 
 /** Обновляет игрока по одной оси и не допускает диагонального движения. */
@@ -26,8 +32,10 @@ export function updatePlayer(
     }
   }
 
-  if (input.radialDirection !== 0) {
-    const targetRadius = playerPosition.radius + input.radialDirection * HEART_RATE_RADIAL_SPEED * safeDeltaTime
+  const radialFactor = clamp(input.radialFactor, RADIAL_FACTOR_MIN, RADIAL_FACTOR_MAX)
+
+  if (radialFactor !== 0) {
+    const targetRadius = playerPosition.radius + radialFactor * HEART_RATE_RADIAL_SPEED * safeDeltaTime
 
     return {
       ...playerPosition,
