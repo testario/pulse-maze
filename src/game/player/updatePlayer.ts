@@ -1,4 +1,4 @@
-import { ANGULAR_SPEED, RADIAL_SPEED } from '../config'
+import { ANGULAR_SPEED, HEART_RATE_RADIAL_SPEED } from '../config'
 import type { PolarMaze } from '../maze/mazeTypes'
 import type { AngularDirection, PolarPosition, RadialDirection } from '../types'
 import { resolveAngularCollision, resolveRadialCollision } from './collision'
@@ -27,7 +27,7 @@ export function updatePlayer(
   }
 
   if (input.radialDirection !== 0) {
-    const targetRadius = playerPosition.radius + input.radialDirection * RADIAL_SPEED * safeDeltaTime
+    const targetRadius = playerPosition.radius + input.radialDirection * HEART_RATE_RADIAL_SPEED * safeDeltaTime
 
     return {
       ...playerPosition,

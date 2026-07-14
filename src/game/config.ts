@@ -1,9 +1,17 @@
 export const FULL_CIRCLE_ANGLE = Math.PI * 2
 export const ANGULAR_SPEED = 1.4
-export const RADIAL_SPEED = 60
 export const MAX_FRAME_DELTA_TIME = 0.05
 export const PLAYER_RADIUS = 7
 export const PLAYER_WALL_CLEARANCE = 2
+
+export const HEART_RATE_BASELINE_BPM = 70
+export const HEART_RATE_OUTWARD_THRESHOLD = 8
+export const HEART_RATE_INWARD_THRESHOLD = 3
+export const HEART_RATE_RADIAL_SPEED = 60
+export const HEART_RATE_SMOOTHING_FACTOR = 0.15
+export const MIN_VALID_BPM = 35
+export const MAX_VALID_BPM = 220
+export const DEBUG_HEART_RATE_STEP_BPM = 1
 
 export const MAZE_RING_COUNT = 5
 export const MAZE_SECTOR_COUNT = 12

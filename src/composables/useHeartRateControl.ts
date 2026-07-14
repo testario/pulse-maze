@@ -1,0 +1,77 @@
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+
+import {
+  DEBUG_HEART_RATE_STEP_BPM,
+  HEART_RATE_BASELINE_BPM,
+  MAX_VALID_BPM,
+  MIN_VALID_BPM,
+} from '../game/config'
+import { getRadialDirection, smoothBpm } from '../game/heartRate'
+import { clamp } from '../utils/clamp'
+
+const DEBUG_HEART_RATE_QUERY_KEY = 'debugHeartRate'
+
+/** Управляет виртуальным BPM, доступным только в debug-режиме. */
+export function useHeartRateControl() {
+  const isDebugHeartRate = ref(isDebugHeartRateEnabled())
+  const baselineBpm = ref(HEART_RATE_BASELINE_BPM)
+  const rawBpm = ref(HEART_RATE_BASELINE_BPM)
+  const smoothedBpm = ref(HEART_RATE_BASELINE_BPM)
+  const radialDirection = computed(() => {
+    if (!isDebugHeartRate.value) {
+      return 0
+    }
+
+    return getRadialDirection(smoothedBpm.value, baselineBpm.value)
+  })
+
+  function updateRawBpm(nextBpm: number) {
+    const nextRawBpm = clamp(nextBpm, MIN_VALID_BPM, MAX_VALID_BPM)
+
+    rawBpm.value = nextRawBpm
+    smoothedBpm.value = smoothBpm(smoothedBpm.value, nextRawBpm)
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (!isDebugHeartRate.value) {
+      return
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault()
+      updateRawBpm(rawBpm.value + DEBUG_HEART_RATE_STEP_BPM)
+      return
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault()
+      updateRawBpm(rawBpm.value - DEBUG_HEART_RATE_STEP_BPM)
+    }
+  }
+
+  onMounted(() => {
+    if (isDebugHeartRate.value) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('keydown', handleKeyDown)
+  })
+
+  return {
+    baselineBpm,
+    isDebugHeartRate,
+    radialDirection,
+    rawBpm,
+    smoothedBpm,
+  }
+}
+
+function isDebugHeartRateEnabled(): boolean {
+  if (typeof window === 'undefined') {
+    return false
+  }
+
+  return new URLSearchParams(window.location.search).get(DEBUG_HEART_RATE_QUERY_KEY) === 'true'
+}
