@@ -1,0 +1,23 @@
+{
+  "name": "pulse-maze",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "sass": "^1.85.0",
+    "typescript": "~5.7.2",
+    "vite": "^5.4.20",
+    "vitest": "^2.1.9",
+    "vue-tsc": "^2.2.12"
+  }
+}
