@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import { ANGULAR_SPEED, PLAYER_START_RADIUS_RATIO } from '../game/config'
-import { renderGameFrame } from '../game/render/renderGameFrame'
-import { movePlayerAlongArc } from '../game/player/polarMath'
+import { PLAYER_START_ANGLE, PLAYER_START_RADIUS } from '../game/config'
+import { STATIC_MAZE } from '../game/maze/staticMaze'
+import { updatePlayer } from '../game/player/updatePlayer'
+import { renderGame } from '../game/render/renderGame'
 import type { PolarPosition } from '../game/types'
 import { useGameLoop } from '../composables/useGameLoop'
 import { useKeyboardInput } from '../composables/useKeyboardInput'
@@ -11,9 +12,9 @@ import { useKeyboardInput } from '../composables/useKeyboardInput'
 const containerElement = ref<HTMLDivElement | null>(null)
 const canvasElement = ref<HTMLCanvasElement | null>(null)
 
-const playerPosition: PolarPosition = {
-  radius: 0,
-  angle: -Math.PI / 2,
+let playerPosition: PolarPosition = {
+  radius: PLAYER_START_RADIUS,
+  angle: PLAYER_START_ANGLE,
 }
 
 let context: CanvasRenderingContext2D | null = null
@@ -27,8 +28,13 @@ const { startGameLoop, stopGameLoop } = useGameLoop((deltaTime) => {
     return
   }
 
-  movePlayerAlongArc(playerPosition, getAngularDirection(), ANGULAR_SPEED, deltaTime)
-  renderGameFrame(context, canvasSize, playerPosition)
+  playerPosition = updatePlayer(
+    playerPosition,
+    STATIC_MAZE,
+    { angularDirection: getAngularDirection(), radialDirection: 0 },
+    deltaTime,
+  )
+  renderGame(context, canvasSize, STATIC_MAZE, playerPosition)
 })
 
 function resizeCanvas() {
@@ -60,9 +66,8 @@ function resizeCanvas() {
 
   context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0)
   canvasSize = size
-  playerPosition.radius = canvasSize * PLAYER_START_RADIUS_RATIO
 
-  renderGameFrame(context, canvasSize, playerPosition)
+  renderGame(context, canvasSize, STATIC_MAZE, playerPosition)
 }
 
 onMounted(() => {

@@ -1,7 +1,22 @@
 export const FULL_CIRCLE_ANGLE = Math.PI * 2
 export const ANGULAR_SPEED = 1.4
+export const RADIAL_SPEED = 60
 export const MAX_FRAME_DELTA_TIME = 0.05
-export const PLAYER_DOT_RADIUS = 7
-export const PLAYER_START_RADIUS_RATIO = 0.3
+export const PLAYER_RADIUS = 7
+export const PLAYER_WALL_CLEARANCE = 2
+
+export const MAZE_RING_COUNT = 5
+export const MAZE_SECTOR_COUNT = 12
+export const MAZE_CENTER_RADIUS = 48
+export const MAZE_RING_WIDTH = 40
+export const MAZE_OUTER_RADIUS = MAZE_CENTER_RADIUS + MAZE_RING_COUNT * MAZE_RING_WIDTH
+export const MAZE_RENDER_PADDING = 24
+export const MAZE_WALL_WIDTH = 2
+export const SECTOR_ANGLE = FULL_CIRCLE_ANGLE / MAZE_SECTOR_COUNT
+
+export const PLAYER_START_RADIUS = MAZE_CENTER_RADIUS + MAZE_RING_WIDTH / 2
+export const PLAYER_START_ANGLE = SECTOR_ANGLE / 2
+
 export const GAME_BACKGROUND_COLOR = '#fbfbf9'
+export const MAZE_WALL_COLOR = '#111111'
 export const PLAYER_COLOR = '#9f1d2a'
