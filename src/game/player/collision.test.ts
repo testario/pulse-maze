@@ -61,7 +61,7 @@ describe('collision', () => {
     expect(angle).toBeCloseTo(expectedAngle)
   })
 
-  it('отдаёт приоритет угловому движению, когда переданы оба направления', () => {
+  it('одновременно применяет угловое и радиальное движение', () => {
     const maze = createStaticMaze()
     const playerPosition = {
       radius: MAZE_CENTER_RADIUS + MAZE_RING_WIDTH / 2,
@@ -75,7 +75,24 @@ describe('collision', () => {
       0.1,
     )
 
-    expect(updatedPosition.radius).toBe(playerPosition.radius)
+    expect(updatedPosition.radius).not.toBe(playerPosition.radius)
     expect(updatedPosition.angle).not.toBe(playerPosition.angle)
+  })
+
+  it('не перескакивает закрытую стену на длинном кадре движения', () => {
+    const maze = createStaticMaze()
+    const playerPosition = {
+      radius: MAZE_CENTER_RADIUS + MAZE_RING_WIDTH / 2,
+      angle: SECTOR_ANGLE * 2.5,
+    }
+
+    const updatedPosition = updatePlayer(
+      playerPosition,
+      maze,
+      { angularDirection: 0, radialFactor: 1 },
+      1,
+    )
+
+    expect(updatedPosition.radius).toBe(MAZE_CENTER_RADIUS + MAZE_RING_WIDTH - PLAYER_COLLISION_RADIUS)
   })
 })

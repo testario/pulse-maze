@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { useGameTranslations } from '../composables/useGameTranslations'
+
 const GRAPH_WIDTH = 240
 const GRAPH_HEIGHT = 64
 const GRAPH_PADDING = 6
@@ -11,6 +13,7 @@ const props = defineProps<{
   isConnected: boolean
   status: string
 }>()
+const { gameText } = useGameTranslations()
 
 const graphBounds = computed(() => {
   if (props.history.length === 0) {
@@ -71,7 +74,7 @@ const lastPoint = computed(() => {
         <span>BPM</span>
       </div>
 
-      <svg class="pulse-card__chart" :viewBox="`0 0 ${GRAPH_WIDTH} ${GRAPH_HEIGHT}`" role="img" aria-label="График пульса">
+      <svg class="pulse-card__chart" :viewBox="`0 0 ${GRAPH_WIDTH} ${GRAPH_HEIGHT}`" role="img" :aria-label="gameText.pulseGraph">
         <line
           class="pulse-card__guide"
           :x1="GRAPH_PADDING"
@@ -88,7 +91,7 @@ const lastPoint = computed(() => {
           r="3"
         />
         <text v-else class="pulse-card__empty" :x="GRAPH_WIDTH / 2" :y="GRAPH_HEIGHT / 2 - 7">
-          Нет данных
+          {{ gameText.noData }}
         </text>
       </svg>
     </div>
@@ -170,5 +173,30 @@ const lastPoint = computed(() => {
   fill: #5f5f5a;
   font-size: 12px;
   text-anchor: middle;
+}
+
+@media (max-width: 640px) {
+  .pulse-card {
+    padding: 0.5rem;
+  }
+
+  .pulse-card__status {
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+  }
+
+  .pulse-card__content {
+    grid-template-columns: auto minmax(6rem, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .pulse-card__bpm strong {
+    font-size: clamp(1.625rem, 8vw, 2rem);
+  }
+
+  .pulse-card__chart {
+    height: 3rem;
+  }
 }
 </style>

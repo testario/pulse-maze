@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import {
+  DEBUG_MOTION_RADIAL_SENSITIVITY,
   MAZE_CENTER_RADIUS,
   PLAYER_START_RADIUS,
   SECTOR_ANGLE,
@@ -16,8 +17,10 @@ import { renderGame } from '../game/render/renderGame'
 import type { PolarPosition } from '../game/types'
 import { useGameLoop } from '../composables/useGameLoop'
 import { useGameSession } from '../composables/useGameSession'
+import { useGameTranslations } from '../composables/useGameTranslations'
 import { useHeartRateControl } from '../composables/useHeartRateControl'
 import { useKeyboardInput } from '../composables/useKeyboardInput'
+import { useMotionInput } from '../composables/useMotionInput'
 
 const containerElement = ref<HTMLDivElement | null>(null)
 const canvasElement = ref<HTMLCanvasElement | null>(null)
@@ -30,7 +33,18 @@ let context: CanvasRenderingContext2D | null = null
 let canvasSize = 0
 let resizeObserver: ResizeObserver | null = null
 
-const { getAngularDirection } = useKeyboardInput()
+const { getAngularDirection: getKeyboardAngularDirection } = useKeyboardInput()
+const {
+  getAngularDirection: getMotionAngularDirection,
+  getRadialFactor: getMotionRadialFactor,
+  isMotionInputActive,
+  isMotionInputAvailable,
+  motionInputError,
+  motionInputState,
+  requestMotionInput,
+  tiltBeta,
+  tiltGamma,
+} = useMotionInput()
 const {
   isDebugHeartRate,
   rawBpm,
@@ -43,8 +57,29 @@ const {
   radialFactor,
   restingBpm,
 } = useGameSession()
+const { gameText } = useGameTranslations()
 
 const debugCell = computed(() => getDebugCell(playerPosition.value))
+const debugMotionStatus = computed(() => {
+  if (!isMotionInputAvailable.value) {
+    return motionInputError.value ?? gameText.value.motionUnavailable
+  }
+
+  if (isMotionInputActive.value) {
+    return gameText.value.motionActive
+  }
+
+  if (motionInputState.value === 'requesting') {
+    return gameText.value.motionRequesting
+  }
+
+  return motionInputError.value ?? gameText.value.motionDisabled
+})
+const debugTilt = computed(() => (
+  tiltBeta.value === null && tiltGamma.value === null
+    ? '—'
+    : `${formatTilt(tiltGamma.value)} / ${formatTilt(tiltBeta.value)}`
+))
 
 const { startGameLoop, stopGameLoop } = useGameLoop((deltaTime) => {
   if (!context || canvasSize === 0) {
@@ -55,7 +90,7 @@ const { startGameLoop, stopGameLoop } = useGameLoop((deltaTime) => {
     playerPosition.value = updatePlayer(
       playerPosition.value,
       maze.value,
-      { angularDirection: getAngularDirection(), radialFactor: radialFactor.value },
+      { angularDirection: getPlayerAngularDirection(), radialFactor: getPlayerRadialFactor() },
       deltaTime,
     )
 
@@ -66,6 +101,28 @@ const { startGameLoop, stopGameLoop } = useGameLoop((deltaTime) => {
 
   renderGame(context, canvasSize, maze.value, playerPosition.value)
 })
+
+function getPlayerAngularDirection() {
+  const keyboardDirection = getKeyboardAngularDirection()
+
+  if (keyboardDirection !== 0) {
+    return keyboardDirection
+  }
+
+  return getMotionAngularDirection(playerPosition.value.angle)
+}
+
+function getPlayerRadialFactor() {
+  if (isDebugHeartRate.value) {
+    return getMotionRadialFactor(playerPosition.value.angle) * DEBUG_MOTION_RADIAL_SENSITIVITY
+  }
+
+  return radialFactor.value
+}
+
+function formatTilt(value: number | null) {
+  return value === null ? '—' : `${value.toFixed(1)}°`
+}
 
 function resizeCanvas() {
   const container = containerElement.value
@@ -111,10 +168,10 @@ function getDebugCell(position: PolarPosition): string {
   const ring = getRingForRadius(position.radius)
 
   if (ring === null) {
-    return position.radius < MAZE_CENTER_RADIUS ? 'Центр лабиринта' : 'Внешняя зона'
+    return position.radius < MAZE_CENTER_RADIUS ? gameText.value.centerArea : gameText.value.outerArea
   }
 
-  return `Кольцо ${ring + 1}, сектор ${getSectorForAngle(position.angle) + 1}`
+  return gameText.value.ringSector(ring + 1, getSectorForAngle(position.angle) + 1)
 }
 
 watch(mazeVersion, () => {
@@ -142,36 +199,52 @@ onBeforeUnmount(() => {
 <template>
   <div class="game-canvas-wrapper">
     <div ref="containerElement" class="game-canvas">
-      <canvas ref="canvasElement" aria-label="Игровое поле Pulse Maze" />
+      <canvas ref="canvasElement" :aria-label="gameText.mazeCanvas" />
     </div>
 
-    <aside v-if="isDebugHeartRate" class="debug-panel" aria-label="Параметры debug-управления">
+    <aside v-if="isDebugHeartRate" class="debug-panel" :aria-label="gameText.debugPulseEmulator">
       <dl>
         <div>
-          <dt>Базовый BPM</dt>
+          <dt>{{ gameText.baselineBpm }}</dt>
           <dd>{{ restingBpm ?? '—' }}</dd>
         </div>
         <div>
-          <dt>Raw BPM</dt>
+          <dt>{{ gameText.rawBpm }}</dt>
           <dd>{{ rawBpm }}</dd>
         </div>
         <div>
-          <dt>Smoothed BPM</dt>
+          <dt>{{ gameText.smoothedBpm }}</dt>
           <dd>{{ smoothedBpm.toFixed(1) }}</dd>
         </div>
         <div>
-          <dt>Радиус</dt>
+          <dt>{{ gameText.radius }}</dt>
           <dd>{{ playerPosition.radius.toFixed(1) }}</dd>
         </div>
         <div>
-          <dt>Угол</dt>
+          <dt>{{ gameText.angle }}</dt>
           <dd>{{ playerPosition.angle.toFixed(2) }}</dd>
         </div>
         <div>
-          <dt>Позиция</dt>
+          <dt>{{ gameText.position }}</dt>
           <dd>{{ debugCell }}</dd>
         </div>
+        <div>
+          <dt>{{ gameText.gyro }}</dt>
+          <dd>{{ debugMotionStatus }}</dd>
+        </div>
+        <div>
+          <dt>{{ gameText.tilt }}</dt>
+          <dd>{{ debugTilt }}</dd>
+        </div>
       </dl>
+      <button
+        v-if="isMotionInputAvailable && !isMotionInputActive"
+        type="button"
+        :disabled="motionInputState === 'requesting'"
+        @click="requestMotionInput"
+      >
+        {{ gameText.enableTilt }}
+      </button>
     </aside>
   </div>
 </template>
@@ -199,6 +272,8 @@ canvas {
 }
 
 .debug-panel {
+  display: grid;
+  gap: 0.5rem;
   border-top: 1px solid #111111;
   padding-top: 0.75rem;
   font-size: 0.8125rem;
@@ -223,5 +298,21 @@ dd {
 
 dd {
   text-align: right;
+}
+
+.debug-panel button {
+  justify-self: start;
+  border: 1px solid #111111;
+  border-radius: 0;
+  background: transparent;
+  color: #111111;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.4rem 0.6rem;
+}
+
+.debug-panel button:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 </style>

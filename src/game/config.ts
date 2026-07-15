@@ -1,8 +1,12 @@
 export const FULL_CIRCLE_ANGLE = Math.PI * 2
 export const ANGULAR_SPEED = 1.4
 export const MAX_FRAME_DELTA_TIME = 0.05
+export const MAX_PLAYER_COLLISION_STEP_TIME = 1 / 240
 export const PLAYER_RADIUS = 7
 export const PLAYER_WALL_CLEARANCE = 2
+export const MOTION_TILT_DEAD_ZONE_DEGREES = 4
+export const MOTION_TILT_FULL_SPEED_DEGREES = 17.5
+export const DEBUG_MOTION_RADIAL_SENSITIVITY = 2
 
 export const HEART_RATE_BASELINE_BPM = 70
 export const HEART_RATE_RADIAL_SPEED = 60

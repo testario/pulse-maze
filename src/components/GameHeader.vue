@@ -7,6 +7,7 @@ import FinishScreen from './FinishScreen.vue'
 import PulseCard from './PulseCard.vue'
 import { useBluetoothHeartRate } from '../composables/useBluetoothHeartRate'
 import { useGameSession } from '../composables/useGameSession'
+import { useGameTranslations } from '../composables/useGameTranslations'
 import { isDebugHeartRateEnabled } from '../composables/useHeartRateControl'
 
 const title = 'Pulse Maze'
@@ -18,21 +19,22 @@ const {
   pulseHistory,
 } = useGameSession()
 const { connectionState } = useBluetoothHeartRate()
+const { gameText } = useGameTranslations()
 
 const pulseStatus = computed(() => {
   if (isDebugHeartRate) {
-    return 'Эмулятор пульса'
+    return gameText.value.debugPulseEmulator
   }
 
   switch (connectionState.value) {
     case 'connected':
-      return 'Пульсометр подключён'
+      return gameText.value.pulseConnected
     case 'connecting':
-      return 'Подключение…'
+      return gameText.value.connecting
     case 'unsupported':
-      return 'Bluetooth недоступен'
+      return gameText.value.bluetoothUnavailable
     default:
-      return 'Пульсометр не подключён'
+      return gameText.value.pulseNotConnected
   }
 })
 
@@ -59,7 +61,7 @@ const showCalibrationScreen = computed(() => (
           href="https://github.com/testario/pulse-maze"
           target="_blank"
           rel="noreferrer"
-          aria-label="Проект на GitHub"
+          :aria-label="gameText.githubProject"
         >
           <svg aria-hidden="true" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.44c.85 0 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" />
@@ -99,8 +101,12 @@ const showCalibrationScreen = computed(() => (
 }
 
 .game-header__title {
+  display: flex;
   width: 100%;
+  align-items: flex-start;
   align-self: start;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .game-header__connection,
@@ -132,11 +138,11 @@ h1 {
 
 .game-header__github-link {
   display: inline-flex;
+  flex: 0 0 auto;
   width: 2.25rem;
   height: 2.25rem;
   align-items: center;
   justify-content: center;
-  margin-top: 0.4rem;
   color: #111111;
 }
 
@@ -152,8 +158,26 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  .game-header {
+    gap: 0.5rem;
+  }
+
   .game-header__main {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .game-header__title {
+    align-items: center;
+  }
+
+  .game-header__connection {
+    gap: 0.5rem;
+  }
+
+  .game-header__github-link {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
 </style>

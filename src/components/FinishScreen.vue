@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { useGameSession } from '../composables/useGameSession'
+import { useGameTranslations } from '../composables/useGameTranslations'
 
 const { finishMessage, formattedTime, startNewMaze } = useGameSession()
+const { gameText } = useGameTranslations()
 </script>
 
 <template>
   <section class="finish-screen" aria-live="polite">
     <p>{{ finishMessage }}</p>
-    <p>Время: {{ formattedTime }}</p>
-    <button type="button" @click="startNewMaze">Новый лабиринт</button>
+    <p>{{ gameText.finishTime }} {{ formattedTime }}</p>
+    <button type="button" @click="startNewMaze">{{ gameText.newMaze }}</button>
   </section>
 </template>
 
@@ -44,6 +46,12 @@ button {
   .finish-screen {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  button {
+    padding: 0.4rem 0.6rem;
   }
 }
 </style>

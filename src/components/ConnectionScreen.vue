@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 import BrowserSupportDialog from './BrowserSupportDialog.vue'
 import { useBluetoothHeartRate } from '../composables/useBluetoothHeartRate'
 import { useGameSession } from '../composables/useGameSession'
+import { useGameTranslations } from '../composables/useGameTranslations'
 
 const {
   connectHeartRateMonitor,
@@ -11,26 +12,27 @@ const {
   connectionState,
 } = useBluetoothHeartRate()
 const { gameState } = useGameSession()
+const { gameText } = useGameTranslations()
 const isBrowserSupportDialogOpen = ref(false)
 
 const statusMessage = computed(() => {
   if (connectionState.value === 'unsupported') {
-    return 'Web Bluetooth не поддерживается этим браузером.'
+    return gameText.value.bluetoothUnavailable
   }
 
   if (connectionState.value === 'connecting') {
-    return 'Подключение к пульсометру…'
+    return gameText.value.connecting
   }
 
   if (connectionState.value === 'connected') {
     if (gameState.value === 'connecting') {
-      return 'Пульсометр подключён. Ожидание данных пульса…'
+      return gameText.value.connectedWaitingBpm
     }
 
-    return 'Пульсометр подключён.'
+    return gameText.value.connected
   }
 
-  return connectionError.value ?? 'Подключите совместимый BLE-пульсометр для управления движением.'
+  return connectionError.value ?? gameText.value.connectPrompt
 })
 </script>
 
@@ -44,7 +46,7 @@ const statusMessage = computed(() => {
         type="button"
         @click="isBrowserSupportDialogOpen = true"
       >
-        Почему?
+        {{ gameText.supportWhy }}
       </button>
     </p>
     <button
@@ -52,17 +54,17 @@ const statusMessage = computed(() => {
       type="button"
       @click="connectHeartRateMonitor"
     >
-      Подключить пульсометр
+      {{ gameText.connectHeartRateMonitor }}
     </button>
 
     <BrowserSupportDialog
       v-if="isBrowserSupportDialogOpen"
-      browser-list="Нужную технологию подключения поддерживают Chrome, Edge, Brave и Opera."
-      close-label="Закрыть"
-      description="Для подключения пульсометра Pulse Maze использует Web Bluetooth."
-      note="Для стабильной работы используйте актуальную версию браузера для компьютера и разрешите доступ к Bluetooth, когда появится запрос."
-      supported-title="Используйте браузер на Chromium"
-      title="Поддержка браузеров"
+      :browser-list="gameText.browserSupport.browsers"
+      :close-label="gameText.closeGuide"
+      :description="gameText.browserSupport.description"
+      :note="gameText.browserSupport.note"
+      :supported-title="gameText.browserSupport.supportedTitle"
+      :title="gameText.browserSupport.title"
       @close="isBrowserSupportDialogOpen = false"
     />
   </section>
@@ -117,6 +119,13 @@ button {
   .connection-screen {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+
+  button {
+    padding: 0.4rem 0.6rem;
   }
 }
 </style>

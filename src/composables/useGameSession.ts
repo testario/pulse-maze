@@ -9,6 +9,7 @@ import {
 import { getRestingBpm } from '../game/calibration'
 import { getRadialFactor } from '../game/heartRate'
 import { useBluetoothHeartRate } from './useBluetoothHeartRate'
+import { getCurrentGameText } from './useGameTranslations'
 import { getDebugHeartRateState } from './useHeartRateControl'
 import { useGameTimer } from './useGameTimer'
 
@@ -104,13 +105,13 @@ function synchronizeConnectionState() {
 
   switch (bluetoothHeartRate.connectionState.value) {
     case 'unsupported':
-      setUnavailableState('unsupported', 'Web Bluetooth не поддерживается этим браузером.')
+      setUnavailableState('unsupported', getCurrentGameText().bluetoothUnavailable)
       return
     case 'disconnected':
-      setUnavailableState('disconnected', 'Пульсометр отключён.')
+      setUnavailableState('disconnected', getCurrentGameText().disconnected)
       return
     case 'connecting':
-      setUnavailableState('connecting', 'Подключение к пульсометру…')
+      setUnavailableState('connecting', getCurrentGameText().connecting)
       return
     case 'connected':
       if (currentRawBpm.value === null) {
@@ -174,7 +175,7 @@ function finishCalibration() {
 
   if (nextRestingBpm === null) {
     gameState.value = 'paused'
-    pauseMessage.value = 'Не удалось получить корректные данные пульса для калибровки.'
+    pauseMessage.value = getCurrentGameText().calibrationFailed
     return
   }
 
@@ -207,7 +208,7 @@ function startGame() {
   }
 
   if (!hasFreshBpm()) {
-    pauseSession('Ожидание актуальных данных пульсометра.')
+    pauseSession(getCurrentGameText().waitingFreshData)
     return
   }
 
@@ -225,7 +226,7 @@ function resumeGame() {
   }
 
   if (!hasFreshBpm()) {
-    pauseMessage.value = 'Ожидание актуальных данных пульсометра.'
+    pauseMessage.value = getCurrentGameText().waitingFreshData
     return
   }
 
@@ -250,7 +251,7 @@ function pauseSession(message: string) {
   gameState.value = 'paused'
 }
 
-function finishGame(message = 'Вы нашли выход из лабиринта.') {
+function finishGame(message: string = getCurrentGameText().defaultFinishMessage) {
   if (gameState.value !== 'playing') {
     return
   }
@@ -270,7 +271,7 @@ function startNewMaze() {
   mazeVersion.value += 1
 
   if (!hasFreshBpm()) {
-    pauseMessage.value = 'Ожидание актуальных данных пульсометра.'
+    pauseMessage.value = getCurrentGameText().waitingFreshData
     gameState.value = 'paused'
     return
   }
@@ -320,7 +321,7 @@ function ensureLifecycleListeners() {
   isLifecycleBound = true
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && gameState.value === 'playing') {
-      pauseSession('Игра приостановлена: вкладка скрыта.')
+      pauseSession(getCurrentGameText().hiddenTabPause)
     }
   })
   window.setInterval(checkStaleBpm, 500)
@@ -332,7 +333,7 @@ function checkStaleBpm() {
   }
 
   if (!hasFreshBpm()) {
-    pauseSession('Игра приостановлена: данные пульса не поступают более трёх секунд.')
+    pauseSession(getCurrentGameText().staleBpmPause)
   }
 }
 
@@ -353,6 +354,6 @@ watch(currentSmoothedBpm, (bpm) => {
 }, { immediate: true })
 watch(gameTimer.elapsedMs, (elapsedMs) => {
   if (gameState.value === 'playing' && elapsedMs >= MAX_SESSION_DURATION_MS) {
-    finishGame('Сеанс завершён: достигнут лимит времени.')
+    finishGame(getCurrentGameText().maxDurationFinish)
   }
 })

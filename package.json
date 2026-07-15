@@ -14,13 +14,13 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@unhead/vue": "^1.11.20",
+    "@unhead/vue": "^2.1.15",
     "@vitejs/plugin-vue": "^5.2.1",
     "sass": "^1.85.0",
     "typescript": "~5.7.2",
-    "vite": "^5.4.20",
-    "vite-ssg": "^0.23.8",
-    "vitest": "^2.1.9",
+    "vite": "^6.4.3",
+    "vite-ssg": "^27.1.0",
+    "vitest": "^3.2.7",
     "vue-tsc": "^2.2.12"
   }
 }

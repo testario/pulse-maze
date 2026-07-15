@@ -4,6 +4,7 @@ import {
   parseHeartRateMeasurement,
   smoothBpm,
 } from '../game/heartRate'
+import { getCurrentGameText } from './useGameTranslations'
 
 const HEART_RATE_SERVICE_UUID = 0x180d
 const HEART_RATE_MEASUREMENT_UUID = 0x2a37
@@ -41,7 +42,7 @@ async function connectHeartRateMonitor() {
 
   if (!bluetooth) {
     connectionState.value = 'unsupported'
-    connectionError.value = 'Web Bluetooth не поддерживается этим браузером.'
+    connectionError.value = getCurrentGameText().bluetoothUnavailable
     return
   }
 
@@ -64,7 +65,7 @@ async function connectHeartRateMonitor() {
     const gatt = selectedDevice.gatt
 
     if (!gatt) {
-      throw new Error('У выбранного устройства нет GATT-сервера.')
+      throw new Error(getCurrentGameText().bluetoothNoGatt)
     }
 
     const server = await gatt.connect()
@@ -81,12 +82,12 @@ async function connectHeartRateMonitor() {
     connectionState.value = 'disconnected'
 
     if (isDeviceSelectionCancelled(error)) {
-      connectionError.value = 'Выбор пульсометра отменён.'
+      connectionError.value = getCurrentGameText().bluetoothSelectionCancelled
       return
     }
 
-    console.error('Не удалось подключить пульсометр.', error)
-    connectionError.value = 'Не удалось подключить пульсометр. Попробуйте ещё раз.'
+    console.error(getCurrentGameText().bluetoothConnectFailed, error)
+    connectionError.value = getCurrentGameText().bluetoothConnectFailed
   }
 }
 
@@ -95,7 +96,7 @@ function handleHeartRateMeasurement() {
   const bpm = value ? parseHeartRateMeasurement(value) : null
 
   if (bpm === null) {
-    console.error('Получены некорректные данные пульсометра.')
+    console.error(getCurrentGameText().bluetoothInvalidData)
     return
   }
 
@@ -107,7 +108,7 @@ function handleHeartRateMeasurement() {
 function handleGattDisconnected() {
   clearConnection(false)
   connectionState.value = 'disconnected'
-  connectionError.value = 'Соединение с пульсометром потеряно.'
+  connectionError.value = getCurrentGameText().bluetoothConnectionLost
 }
 
 function clearConnection(disconnectGatt: boolean) {
