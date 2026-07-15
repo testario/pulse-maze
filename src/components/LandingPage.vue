@@ -15,6 +15,7 @@ const translations = {
     heroTitle: 'Test your heart rate monitor in a game.',
     heroDescription: 'Pulse Maze is a browser game that lets you control a maze using your heartbeat. Connect any Bluetooth heart rate monitor and start playing instantly.',
     tryGame: 'Try Pulse Maze',
+    viewOnGitHub: 'View on GitHub',
     heroNote: 'No installation • Web Bluetooth • Free',
     howEyebrow: 'HOW IT WORKS',
     howTitle: 'A heart rate monitor becomes the controller.',
@@ -54,6 +55,7 @@ const translations = {
     finalDescription: 'No downloads. No account. Just connect your heart rate monitor and play.',
     playNow: 'Play Now',
     finalNote: 'Works directly in Chrome using Web Bluetooth.',
+    sourceCode: 'View source on GitHub',
     cookieTitle: 'We use cookies',
     cookieDescription: 'We save only your language choice in a cookie to keep it after the next visit.',
     acceptCookies: 'Accept cookies',
@@ -65,6 +67,7 @@ const translations = {
     heroTitle: 'Проверьте пульсометр в игре.',
     heroDescription: 'Pulse Maze — браузерная игра, в которой вы управляете лабиринтом с помощью сердцебиения. Подключите любой Bluetooth-пульсометр и начинайте играть.',
     tryGame: 'Попробовать Pulse Maze',
+    viewOnGitHub: 'Открыть на GitHub',
     heroNote: 'Без установки • Web Bluetooth • Бесплатно',
     howEyebrow: 'КАК ЭТО РАБОТАЕТ',
     howTitle: 'Пульсометр становится контроллером.',
@@ -104,6 +107,7 @@ const translations = {
     finalDescription: 'Без загрузок. Без аккаунта. Подключите пульсометр и играйте.',
     playNow: 'Играть',
     finalNote: 'Работает прямо в Chrome через Web Bluetooth.',
+    sourceCode: 'Исходный код на GitHub',
     cookieTitle: 'Мы используем cookie',
     cookieDescription: 'Мы сохраняем только выбранный язык в cookie, чтобы он остался при следующем посещении.',
     acceptCookies: 'Принять cookie',
@@ -158,6 +162,14 @@ initializePreferences()
         <p class="hero__description">{{ content.heroDescription }}</p>
         <div class="hero__actions">
           <RouterLink class="button button--dark" to="/game">{{ content.tryGame }}</RouterLink>
+          <a
+            class="button button--outline"
+            href="https://github.com/testario/pulse-maze"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ content.viewOnGitHub }}
+          </a>
           <p class="technical-note">{{ content.heroNote }}</p>
         </div>
       </div>
@@ -251,6 +263,14 @@ initializePreferences()
         <div class="final-cta__actions">
           <RouterLink class="button button--light" to="/game">{{ content.playNow }}</RouterLink>
           <p class="technical-note">{{ content.finalNote }}</p>
+          <a
+            class="project-link technical-note"
+            href="https://github.com/testario/pulse-maze"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ content.sourceCode }}
+          </a>
         </div>
       </div>
     </section>
@@ -338,6 +358,17 @@ h2 {
   outline-offset: 3px;
 }
 
+.project-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.project-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 .button--dark {
   border-color: var(--pm-ink);
   background: var(--pm-ink);
@@ -347,6 +378,11 @@ h2 {
 .button--dark:hover {
   background: transparent;
   color: var(--pm-ink);
+}
+
+.button--outline:hover {
+  background: var(--pm-ink);
+  color: var(--pm-bg);
 }
 
 .button--light {

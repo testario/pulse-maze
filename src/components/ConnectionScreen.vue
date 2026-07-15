@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
+import BrowserSupportDialog from './BrowserSupportDialog.vue'
 import { useBluetoothHeartRate } from '../composables/useBluetoothHeartRate'
 import { useGameSession } from '../composables/useGameSession'
 
@@ -10,6 +11,7 @@ const {
   connectionState,
 } = useBluetoothHeartRate()
 const { gameState } = useGameSession()
+const isBrowserSupportDialogOpen = ref(false)
 
 const statusMessage = computed(() => {
   if (connectionState.value === 'unsupported') {
@@ -34,7 +36,17 @@ const statusMessage = computed(() => {
 
 <template>
   <section class="connection-screen" aria-live="polite">
-    <p>{{ statusMessage }}</p>
+    <p>
+      {{ statusMessage }}
+      <button
+        v-if="connectionState === 'unsupported'"
+        class="connection-screen__support-link"
+        type="button"
+        @click="isBrowserSupportDialogOpen = true"
+      >
+        Почему?
+      </button>
+    </p>
     <button
       v-if="connectionState === 'disconnected'"
       type="button"
@@ -42,6 +54,17 @@ const statusMessage = computed(() => {
     >
       Подключить пульсометр
     </button>
+
+    <BrowserSupportDialog
+      v-if="isBrowserSupportDialogOpen"
+      browser-list="Нужную технологию подключения поддерживают Chrome, Edge, Brave и Opera."
+      close-label="Закрыть"
+      description="Для подключения пульсометра Pulse Maze использует Web Bluetooth."
+      note="Для стабильной работы используйте актуальную версию браузера для компьютера и разрешите доступ к Bluetooth, когда появится запрос."
+      supported-title="Используйте браузер на Chromium"
+      title="Поддержка браузеров"
+      @close="isBrowserSupportDialogOpen = false"
+    />
   </section>
 </template>
 
@@ -62,6 +85,21 @@ const statusMessage = computed(() => {
 
 p {
   margin: 0;
+}
+
+.connection-screen__support-link {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.connection-screen__support-link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
 }
 
 button {
