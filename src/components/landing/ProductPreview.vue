@@ -1,11 +1,12 @@
 <script setup lang="ts">
 defineProps<{
   connectionLabel: string
+  previewLabel: string
 }>()
 </script>
 
 <template>
-  <div class="product-preview" aria-label="Схема игрового интерфейса">
+  <div class="product-preview" :aria-label="previewLabel">
     <div class="product-preview__browser">
       <div class="product-preview__toolbar">
         <div class="product-preview__window-controls" aria-hidden="true">

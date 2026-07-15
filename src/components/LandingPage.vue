@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { useHead } from '@unhead/vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 import BrowserSupportDialog from './BrowserSupportDialog.vue'
 import CookieConsentDialog from './CookieConsentDialog.vue'
 import FinalPulseGraphic from './landing/FinalPulseGraphic.vue'
 import MazeHeroGraphic from './landing/MazeHeroGraphic.vue'
 import ProductPreview from './landing/ProductPreview.vue'
-import { useLanguagePreferences } from '../composables/useLanguagePreferences'
+import { useLanguagePreferences, type Language } from '../composables/useLanguagePreferences'
 
 const translations = {
   en: {
     heroEyebrow: 'PULSE MAZE',
     languageLabel: 'Language',
     heroTitle: 'Test your heart rate monitor in a game.',
-    heroDescription: 'Pulse Maze is a browser game that lets you control a maze using your heartbeat. Connect any Bluetooth heart rate monitor and start playing instantly.',
+    heroDescription: 'Pulse Maze is a browser game for testing BLE heart rate monitors and turning movement into a playful challenge for kids and adults. Connect a Bluetooth heart rate sensor and start instantly.',
     tryGame: 'Try Pulse Maze',
     viewOnGitHub: 'View on GitHub',
     heroNote: 'No installation • Web Bluetooth • Free',
@@ -25,17 +27,19 @@ const translations = {
       'Navigate the maze by raising and lowering your pulse.',
     ],
     previewConnected: 'CONNECTED',
+    previewAriaLabel: 'Game interface diagram',
     compatibilityEyebrow: 'COMPATIBILITY',
     compatibilityTitle: 'Works with standard Bluetooth heart rate monitors',
     devices: [
       'Magene H303',
       'Polar H10',
       'Polar H9',
+      'Garmin HRM-Pro Plus',
+      'Wahoo TRACKR Heart Rate',
       'Wahoo Tickr',
-      'Garmin HRM',
       'Any BLE Heart Rate Service device',
     ],
-    compatibilityDescription: 'Pulse Maze uses the standard Bluetooth Heart Rate Service supported by most modern chest straps.',
+    compatibilityDescription: 'Pulse Maze uses the standard Bluetooth Heart Rate Service supported by most modern chest straps and many fitness sensors.',
     connectDevice: 'Connect your device',
     requirementsTitle: 'REQUIREMENTS',
     requirements: [
@@ -52,7 +56,7 @@ const translations = {
     close: 'Close',
     finalEyebrow: 'PLAY IN THE BROWSER',
     finalTitle: 'Ready to control a game with your heartbeat?',
-    finalDescription: 'No downloads. No account. Just connect your heart rate monitor and play.',
+    finalDescription: 'No downloads. No account. Connect your heart rate monitor, let kids jump around, and watch BPM control the maze.',
     playNow: 'Play Now',
     finalNote: 'Works directly in Chrome using Web Bluetooth.',
     sourceCode: 'View source on GitHub',
@@ -65,7 +69,7 @@ const translations = {
     heroEyebrow: 'PULSE MAZE',
     languageLabel: 'Язык',
     heroTitle: 'Проверьте пульсометр в игре.',
-    heroDescription: 'Pulse Maze — браузерная игра, в которой вы управляете лабиринтом с помощью сердцебиения. Подключите любой Bluetooth-пульсометр и начинайте играть.',
+    heroDescription: 'Pulse Maze — браузерная игра для тестирования BLE-пульсометров и активной игры с детьми. Подключите Bluetooth-датчик пульса и управляйте лабиринтом сердцебиением.',
     tryGame: 'Попробовать Pulse Maze',
     viewOnGitHub: 'Открыть на GitHub',
     heroNote: 'Без установки • Web Bluetooth • Бесплатно',
@@ -77,14 +81,16 @@ const translations = {
       'Проходите лабиринт, повышая и понижая пульс.',
     ],
     previewConnected: 'ПОДКЛЮЧЕНО',
+    previewAriaLabel: 'Схема игрового интерфейса',
     compatibilityEyebrow: 'СОВМЕСТИМОСТЬ',
     compatibilityTitle: 'Работает со стандартными Bluetooth-пульсометрами',
     devices: [
       'Magene H303',
       'Polar H10',
       'Polar H9',
+      'Garmin HRM-Pro Plus',
+      'Wahoo TRACKR Heart Rate',
       'Wahoo Tickr',
-      'Garmin HRM',
       'Любое устройство с BLE Heart Rate Service',
     ],
     compatibilityDescription: 'Pulse Maze использует стандартный сервис Bluetooth Heart Rate Service, который поддерживают современные нагрудные пульсометры и некоторые модели смарт-часов.',
@@ -104,7 +110,7 @@ const translations = {
     close: 'Закрыть',
     finalEyebrow: 'ИГРАЙТЕ В БРАУЗЕРЕ',
     finalTitle: 'Готовы управлять игрой через сердцебиение?',
-    finalDescription: 'Без загрузок. Без аккаунта. Подключите пульсометр и играйте.',
+    finalDescription: 'Без загрузок. Без аккаунта. Подключите пульсометр, займите детей прыжками и смотрите, как BPM управляет лабиринтом.',
     playNow: 'Играть',
     finalNote: 'Работает прямо в Chrome через Web Bluetooth.',
     sourceCode: 'Исходный код на GitHub',
@@ -115,6 +121,44 @@ const translations = {
   },
 }
 
+const localePaths: Record<Language, string> = {
+  en: '/en',
+  ru: '/',
+}
+
+const seo = {
+  en: {
+    title: 'Pulse Maze - BLE heart rate monitor test game',
+    description: 'Pulse Maze is a browser game for testing BLE heart rate monitors such as Polar H10, Polar H9, Garmin HRM-Pro Plus and Wahoo TRACKR. Use heart rate data to control a maze and keep kids moving.',
+    keywords: 'BLE heart rate monitor test, Bluetooth heart rate monitor game, Web Bluetooth heart rate, Heart Rate Service, kids active game, Pulse Maze, Polar H10, Polar H9, Garmin HRM-Pro Plus, Wahoo TRACKR Heart Rate, Wahoo Tickr',
+    ogLocale: 'en_US',
+    applicationSubCategory: 'Interactive BLE heart rate monitor test game',
+    structuredDescription: 'Pulse Maze is a minimalist browser game where a compatible BLE heart rate monitor controls movement through a circular maze. It is useful for testing BPM transmission and for active family play.',
+    featureList: [
+      'Connect BLE heart rate monitors through the Web Bluetooth API',
+      'Support for the standard Bluetooth Heart Rate Service',
+      'Visual BPM stream testing in the browser',
+      'Interactive maze controlled by heart rate',
+      'Debug mode without a BLE heart rate monitor',
+    ],
+  },
+  ru: {
+    title: 'Pulse Maze — игра и тест BLE-пульсометра',
+    description: 'Pulse Maze — браузерная игра для тестирования BLE-пульсометров Polar H10, Polar H9, Garmin HRM-Pro Plus, Wahoo TRACKR и других датчиков Bluetooth Heart Rate. Пульс управляет лабиринтом, а дети могут активно попрыгать и поиграть.',
+    keywords: 'BLE пульсометр, тест пульсометра, тест Bluetooth пульсометра, Bluetooth Heart Rate Service, Web Bluetooth, игра с пульсометром, активная игра для детей, Pulse Maze, Polar H10, Polar H9, Garmin HRM-Pro Plus, Wahoo TRACKR Heart Rate, Wahoo Tickr',
+    ogLocale: 'ru_RU',
+    applicationSubCategory: 'Интерактивная игра для проверки BLE-пульсометра',
+    structuredDescription: 'Pulse Maze — минималистичная браузерная игра, в которой данные совместимого BLE-пульсометра управляют движением точки в круговом лабиринте. Подходит для наглядной проверки передачи BPM и активной игры в семье.',
+    featureList: [
+      'Подключение BLE-пульсометра через Web Bluetooth API',
+      'Поддержка стандартного Bluetooth Heart Rate Service',
+      'Визуальная проверка потока BPM в браузере',
+      'Интерактивный круговой лабиринт, управляемый пульсом',
+      'Режим отладки без BLE-пульсометра',
+    ],
+  },
+}
+
 const {
   acceptCookies,
   consent,
@@ -122,11 +166,98 @@ const {
   initializePreferences,
   language,
   setLanguage,
+  setInitialLanguage,
 } = useLanguagePreferences()
+
+const route = useRoute()
+const router = useRouter()
+const routeLanguage = computed<Language>(() => route.meta.language === 'en' ? 'en' : 'ru')
+
+setInitialLanguage(routeLanguage.value)
+
 const content = computed(() => translations[language.value])
 const isBrowserSupportDialogOpen = ref(false)
+const isHydrated = ref(false)
 
-initializePreferences()
+useHead(() => {
+  const currentLanguage = routeLanguage.value
+  const currentSeo = seo[currentLanguage]
+
+  return {
+    title: currentSeo.title,
+    htmlAttrs: {
+      lang: currentLanguage,
+    },
+    meta: [
+      { name: 'description', content: currentSeo.description },
+      { name: 'keywords', content: currentSeo.keywords },
+      { name: 'application-name', content: 'Pulse Maze' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:locale', content: currentSeo.ogLocale },
+      { property: 'og:title', content: currentSeo.title },
+      { property: 'og:description', content: currentSeo.description },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: currentSeo.title },
+      { name: 'twitter:description', content: currentSeo.description },
+    ],
+    link: [
+      { rel: 'canonical', href: localePaths[currentLanguage] },
+      { rel: 'alternate', hreflang: 'ru', href: localePaths.ru },
+      { rel: 'alternate', hreflang: 'en', href: localePaths.en },
+      { rel: 'alternate', hreflang: 'x-default', href: localePaths.ru },
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(createSoftwareApplicationSchema(currentLanguage)),
+      },
+    ],
+  }
+})
+
+watch(routeLanguage, (nextLanguage) => {
+  setInitialLanguage(nextLanguage)
+})
+
+onMounted(() => {
+  isHydrated.value = true
+
+  const savedLanguage = initializePreferences()
+
+  if (savedLanguage && savedLanguage !== routeLanguage.value) {
+    router.replace(localePaths[savedLanguage])
+  }
+})
+
+function selectLanguage(nextLanguage: Language) {
+  setLanguage(nextLanguage)
+
+  if (nextLanguage !== routeLanguage.value) {
+    router.push(localePaths[nextLanguage])
+  }
+}
+
+function createSoftwareApplicationSchema(currentLanguage: Language) {
+  const currentSeo = seo[currentLanguage]
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Pulse Maze',
+    applicationCategory: 'GameApplication',
+    applicationSubCategory: currentSeo.applicationSubCategory,
+    operatingSystem: currentLanguage === 'ru'
+      ? 'Современный Chromium-браузер с Web Bluetooth'
+      : 'Modern Chromium browser with Web Bluetooth',
+    browserRequirements: 'Web Bluetooth API and a compatible BLE heart rate monitor with the Heart Rate Service',
+    inLanguage: currentLanguage,
+    isAccessibleForFree: true,
+    description: currentSeo.structuredDescription,
+    featureList: currentSeo.featureList,
+    keywords: currentSeo.keywords,
+  }
+}
 </script>
 
 <template>
@@ -141,7 +272,7 @@ initializePreferences()
           :class="['language-tab', { 'language-tab--active': language === 'en' }]"
           type="button"
           :aria-pressed="language === 'en'"
-          @click="setLanguage('en')"
+          @click="selectLanguage('en')"
         >
           EN
         </button>
@@ -150,7 +281,7 @@ initializePreferences()
           :class="['language-tab', { 'language-tab--active': language === 'ru' }]"
           type="button"
           :aria-pressed="language === 'ru'"
-          @click="setLanguage('ru')"
+          @click="selectLanguage('ru')"
         >
           RU
         </button>
@@ -178,7 +309,10 @@ initializePreferences()
     <section class="how-it-works landing-section">
       <div class="how-it-works__content content-container">
         <div class="product-preview-wrap">
-          <ProductPreview :connection-label="content.previewConnected" />
+          <ProductPreview
+            :connection-label="content.previewConnected"
+            :preview-label="content.previewAriaLabel"
+          />
         </div>
 
         <div class="how-it-works__copy">
@@ -276,7 +410,7 @@ initializePreferences()
     </section>
 
     <CookieConsentDialog
-      v-if="consent === 'unknown'"
+      v-if="isHydrated && consent === 'unknown'"
       :accept-label="content.acceptCookies"
       :decline-label="content.declineCookies"
       :description="content.cookieDescription"

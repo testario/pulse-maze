@@ -22,23 +22,34 @@ export function useLanguagePreferences() {
     initializePreferences,
     language,
     setLanguage,
+    setInitialLanguage,
   }
+}
+
+function setInitialLanguage(nextLanguage: Language) {
+  language.value = nextLanguage
 }
 
 function initializePreferences() {
   if (isInitialized || typeof document === 'undefined') {
-    return
+    return null
   }
 
   isInitialized = true
 
   if (getCookie(COOKIE_CONSENT_NAME) !== 'accepted') {
     removeAppCookies()
-    return
+    return null
   }
 
   consent.value = 'accepted'
-  language.value = getLanguageFromCookie() ?? 'ru'
+  const savedLanguage = getLanguageFromCookie()
+
+  if (savedLanguage) {
+    language.value = savedLanguage
+  }
+
+  return savedLanguage
 }
 
 function acceptCookies() {

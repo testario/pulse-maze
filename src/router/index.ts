@@ -1,26 +1,31 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 
-import GameScreen from '../components/GameScreen.vue'
 import LandingPage from '../components/LandingPage.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: LandingPage,
+export const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'home',
+    component: LandingPage,
+    meta: {
+      language: 'ru',
     },
-    {
-      path: '/game',
-      name: 'game',
-      component: GameScreen,
+  },
+  {
+    path: '/en',
+    name: 'home-en',
+    component: LandingPage,
+    meta: {
+      language: 'en',
     },
-    {
-      path: '/:pathMatch(.*)*',
-      redirect: '/',
-    },
-  ],
-})
-
-export default router
+  },
+  {
+    path: '/game',
+    name: 'game',
+    component: () => import('../components/GameScreen.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
+]
