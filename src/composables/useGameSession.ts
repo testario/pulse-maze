@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue'
 import {
   CALIBRATION_DURATION_MS,
   MAX_SESSION_DURATION_MS,
+  PULSE_GRAPH_HISTORY_LENGTH,
   STALE_BPM_TIMEOUT_MS,
 } from '../game/config'
 import { getRestingBpm } from '../game/calibration'
@@ -30,6 +31,7 @@ const pauseMessage = ref<string | null>(null)
 const finishMessage = ref<string | null>(null)
 const hasShownSafetyWarning = ref(false)
 const mazeVersion = ref(0)
+const pulseHistory = ref<number[]>([])
 const gameTimer = useGameTimer()
 
 const currentRawBpm = computed(() => (
@@ -77,6 +79,7 @@ export function useGameSession() {
     hasShownSafetyWarning,
     mazeVersion,
     pauseMessage,
+    pulseHistory,
     radialFactor,
     restingBpm,
     resumeGame,
@@ -341,6 +344,13 @@ watch(
     synchronizeConnectionState()
   },
 )
+watch(currentSmoothedBpm, (bpm) => {
+  if (bpm === null) {
+    return
+  }
+
+  pulseHistory.value = [...pulseHistory.value, bpm].slice(-PULSE_GRAPH_HISTORY_LENGTH)
+}, { immediate: true })
 watch(gameTimer.elapsedMs, (elapsedMs) => {
   if (gameState.value === 'playing' && elapsedMs >= MAX_SESSION_DURATION_MS) {
     finishGame('Сеанс завершён: достигнут лимит времени.')

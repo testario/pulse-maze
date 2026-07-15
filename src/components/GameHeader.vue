@@ -1,23 +1,30 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import PulseCard from './PulseCard.vue'
+import ConnectionScreen from './ConnectionScreen.vue'
+import { useBluetoothHeartRate } from '../composables/useBluetoothHeartRate'
 import { useGameSession } from '../composables/useGameSession'
+import { isDebugHeartRateEnabled } from '../composables/useHeartRateControl'
 
 const title = 'Pulse Maze'
-const { currentSmoothedBpm, formattedTime, gameState } = useGameSession()
+const isDebugHeartRate = isDebugHeartRateEnabled()
+const {
+  currentSmoothedBpm,
+  formattedTime,
+  gameState,
+  pulseHistory,
+} = useGameSession()
+const { connectionState } = useBluetoothHeartRate()
 
-const connectionLabel = computed(() => {
-  switch (gameState.value) {
-    case 'calibrating':
-      return 'Калибровка'
-    case 'ready':
-      return 'Готово к началу'
-    case 'playing':
-      return 'Игра начата'
-    case 'paused':
-      return 'Игра на паузе'
-    case 'finished':
-      return 'Маршрут завершён'
+const pulseStatus = computed(() => {
+  if (isDebugHeartRate) {
+    return 'Эмулятор пульса'
+  }
+
+  switch (connectionState.value) {
+    case 'connected':
+      return 'Пульсометр подключён'
     case 'connecting':
       return 'Подключение…'
     case 'unsupported':
@@ -27,29 +34,72 @@ const connectionLabel = computed(() => {
   }
 })
 
-const bpmLabel = computed(() => (
-  currentSmoothedBpm.value === null ? 'BPM —' : `BPM ${Math.round(currentSmoothedBpm.value)}`
+const isPulseMonitorConnected = computed(() => connectionState.value === 'connected')
+const showConnectionScreen = computed(() => (
+  !isDebugHeartRate && (
+    ['unsupported', 'disconnected', 'connecting'].includes(connectionState.value)
+    || (connectionState.value === 'connected' && gameState.value === 'connecting')
+  )
 ))
+
+const gameStatus = computed(() => {
+  switch (gameState.value) {
+    case 'calibrating': return 'Калибровка'
+    case 'ready': return 'Готово к началу'
+    case 'playing': return 'Игра начата'
+    case 'paused': return 'Игра на паузе'
+    case 'finished': return 'Маршрут завершён'
+    default: return ''
+  }
+})
 </script>
 
 <template>
   <header class="game-header">
-    <h1>{{ title }}</h1>
-    <div class="status" aria-live="polite">
-      <span>{{ connectionLabel }}</span>
-      <span>{{ formattedTime }}</span>
-      <span>{{ bpmLabel }}</span>
+    <div class="game-header__main">
+      <div class="game-header__title">
+        <h1>{{ title }}</h1>
+        <div class="game-header__meta" aria-live="polite">
+          <span v-if="gameStatus">{{ gameStatus }}</span>
+          <span>{{ formattedTime }}</span>
+        </div>
+      </div>
+      <div class="game-header__connection">
+        <ConnectionScreen v-if="showConnectionScreen" />
+      </div>
+      <PulseCard
+        class="game-header__pulse"
+        :bpm="currentSmoothedBpm"
+        :history="pulseHistory"
+        :is-connected="isPulseMonitorConnected"
+        :status="pulseStatus"
+      />
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
 .game-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
   gap: 1rem;
-  min-height: 2.5rem;
+}
+
+.game-header__main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.game-header__title {
+  display: grid;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.game-header__connection,
+.game-header__pulse {
+  width: 100%;
 }
 
 h1 {
@@ -60,12 +110,16 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-.status {
+.game-header__meta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   gap: 0.5rem 1rem;
-  font-size: 0.8125rem;
-  text-align: right;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .game-header__main {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

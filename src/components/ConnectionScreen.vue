@@ -48,9 +48,11 @@ const statusMessage = computed(() => {
 <style lang="scss" scoped>
 .connection-screen {
   display: flex;
-  width: min(100%, 42rem);
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   gap: 1rem;
   border-top: 1px solid #111111;
   border-bottom: 1px solid #111111;

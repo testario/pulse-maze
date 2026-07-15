@@ -1,0 +1,3404 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "DbtHR",
+      "x": 0,
+      "y": 0,
+      "name": "Pulse Maze Landing Page",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "fill": "$pm-bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wHzJ0",
+          "name": "Section 1 Hero",
+          "clip": true,
+          "width": "fill_container",
+          "height": 920,
+          "fill": "$pm-bg",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "xcu58",
+              "x": 0,
+              "y": 0,
+              "name": "Hero SVG Maze Background 200 Percent",
+              "opacity": 0.2,
+              "clip": true,
+              "width": 1440,
+              "height": 920,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "tllSC",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Main Circuit",
+                  "geometry": "M250 232h254v-124h430v62h-284v124h446v60h-680v-122h374v-162h400",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "Vo7u7",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Upper Corridor",
+                  "geometry": "M312 150h126v-94h626v62h-222v108h352",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "cM6P2",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Lower Corridor",
+                  "geometry": "M286 318h262v84h468v-98h-274v-84h-152",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "XgHQU",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Left Return",
+                  "geometry": "M360 82v120h-146v182h426v-54",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "fgegE",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Right Return",
+                  "geometry": "M1084 68v176h148v164h-384v-52",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "L67NYE",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Central Spur A",
+                  "geometry": "M514 168h202v-56h104",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "s6Fz2Z",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Central Spur B",
+                  "geometry": "M918 248h-136v66h-176",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "FM5n2",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Center Step",
+                  "geometry": "M698 182v68h168v-48",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "tHZZT",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Bottom Step",
+                  "geometry": "M470 364h236v62h224",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "K6nXW",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Top Step",
+                  "geometry": "M540 34v58h180v-58h180",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "sLIxT",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Outer Top Hint",
+                  "geometry": "M180 28h1080",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "QBVSp",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Outer Bottom Hint",
+                  "geometry": "M192 432h1056",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "ellipse",
+                  "id": "mquoJ",
+                  "x": 848,
+                  "y": 407,
+                  "name": "Maze Small Position Dot",
+                  "fill": "$pm-ink",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d399X",
+              "x": 120,
+              "y": 116,
+              "name": "Hero Content Container",
+              "width": 1200,
+              "height": 650,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oltXy",
+                  "x": 190,
+                  "y": 118,
+                  "name": "Hero Text Stack",
+                  "width": 820,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "riv1q",
+                      "name": "Hero Eyebrow",
+                      "fill": "$pm-muted",
+                      "content": "PULSE MAZE",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GYcPA",
+                      "name": "Hero Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Test your heart rate monitor in a game.",
+                      "lineHeight": 0.98,
+                      "textAlign": "center",
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 72,
+                      "fontWeight": "620"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EgxbK",
+                      "name": "Hero Subtitle",
+                      "fill": "$pm-muted",
+                      "textGrowth": "fixed-width",
+                      "width": 720,
+                      "content": "Pulse Maze is a browser game that lets you control a maze using your heartbeat. Connect any Bluetooth heart rate monitor and start playing instantly.",
+                      "lineHeight": 1.45,
+                      "textAlign": "center",
+                      "fontFamily": "$pm-font-body",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "epFMv",
+                      "name": "Hero Actions",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": [
+                        18,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "I4aKiY",
+                          "name": "Primary CTA Try Pulse Maze",
+                          "fill": "$pm-ink",
+                          "cornerRadius": 999,
+                          "stroke": "$pm-ink",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            17,
+                            28
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "WqKcz",
+                              "name": "Primary CTA Label",
+                              "fill": "$pm-bg",
+                              "content": "Try Pulse Maze",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Q2EJG",
+                          "name": "Hero Secondary Note",
+                          "fill": "$pm-muted",
+                          "content": "No installation • Web Bluetooth • Free",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "bFTVg",
+              "x": 0,
+              "y": 919,
+              "name": "Hero Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P6vqQb",
+          "name": "Section 2 How It Works",
+          "clip": true,
+          "width": "fill_container",
+          "height": 760,
+          "fill": "$pm-bg",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "P0Itfj",
+              "x": 120,
+              "y": 96,
+              "name": "How It Works Container",
+              "width": 1200,
+              "height": 560,
+              "gap": 96,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VCFJw",
+                  "name": "Abstract Product Preview Diagram",
+                  "width": 500,
+                  "height": 500,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "WgcMd",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Preview Boundary",
+                      "fill": "#FFFFFF00",
+                      "width": 500,
+                      "height": 500,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 22,
+                      "id": "N7chl",
+                      "x": 46,
+                      "y": 58,
+                      "name": "Preview Browser Window",
+                      "fill": "$pm-bg",
+                      "width": 408,
+                      "height": 316,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": [
+                        22,
+                        22,
+                        0,
+                        0
+                      ],
+                      "id": "kQHxJ",
+                      "x": 46,
+                      "y": 58,
+                      "name": "Preview Browser Toolbar",
+                      "fill": "$pm-bg",
+                      "width": 408,
+                      "height": 42,
+                      "stroke": "$pm-line",
+                      "strokeWidth": {
+                        "bottom": 1
+                      }
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "D8z5rc",
+                      "x": 72,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 1",
+                      "fill": "$pm-ink",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "TSZjT",
+                      "x": 90,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 2",
+                      "fill": "$pm-line",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "LEcY8",
+                      "x": 108,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 3",
+                      "fill": "$pm-line",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a8GtB",
+                      "x": 304,
+                      "y": 72,
+                      "name": "Preview Url Pill",
+                      "width": 112,
+                      "height": 14,
+                      "fill": "$pm-soft",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 12,
+                      "id": "fXAab",
+                      "x": 74,
+                      "y": 128,
+                      "name": "Preview Game Surface",
+                      "fill": "$pm-soft",
+                      "width": 352,
+                      "height": 168,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "path",
+                      "id": "QPo1O",
+                      "x": 96,
+                      "y": 154,
+                      "name": "Preview Game Route Primary",
+                      "geometry": "M0 58h58v-40h86v64h72v-44h92",
+                      "viewBox": [
+                        0,
+                        0,
+                        308,
+                        110
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 308,
+                      "height": 110,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "strokeLinecap": "square"
+                    },
+                    {
+                      "type": "path",
+                      "id": "W5SEcA",
+                      "x": 128,
+                      "y": 176,
+                      "name": "Preview Game Route Secondary",
+                      "geometry": "M0 20h54v-20h74v52h116",
+                      "viewBox": [
+                        0,
+                        0,
+                        244,
+                        70
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 244,
+                      "height": 70,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "strokeLinecap": "square"
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "z0kkez",
+                      "x": 336,
+                      "y": 188,
+                      "name": "Preview Player Dot",
+                      "fill": "$pm-ink",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "gNWNl",
+                      "x": 116,
+                      "y": 208,
+                      "name": "Preview Target Dot",
+                      "fill": "$pm-bg",
+                      "width": 8,
+                      "height": 8,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "idI9A",
+                      "x": 86,
+                      "y": 314,
+                      "name": "Preview Live Status Pill",
+                      "width": 126,
+                      "height": 28,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Yvfyf",
+                          "name": "Preview Live Status Dot",
+                          "fill": "$pm-ink",
+                          "width": 7,
+                          "height": 7
+                        },
+                        {
+                          "type": "text",
+                          "id": "PTANF",
+                          "name": "Preview Live Status Text",
+                          "fill": "$pm-ink",
+                          "content": "CONNECTED",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "j1tES",
+                      "x": 224,
+                      "y": 306,
+                      "name": "Preview HR Telemetry Panel",
+                      "width": 188,
+                      "height": 48,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 14,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w7hVcP",
+                      "x": 244,
+                      "y": 319,
+                      "name": "Preview BPM Value",
+                      "fill": "$pm-ink",
+                      "content": "78",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CbSQy",
+                      "x": 274,
+                      "y": 324,
+                      "name": "Preview BPM Label",
+                      "fill": "$pm-muted",
+                      "content": "BPM",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "path",
+                      "id": "WAWKl",
+                      "x": 322,
+                      "y": 322,
+                      "name": "Preview BPM Trace",
+                      "geometry": "M0 9l14 0 8-8 9 16 9-8 15 0 7-4 8 7",
+                      "viewBox": [
+                        0,
+                        0,
+                        70,
+                        18
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 70,
+                      "height": 18,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t9kUp",
+                      "x": 150,
+                      "y": 402,
+                      "name": "Preview Sensor Capsule",
+                      "width": 200,
+                      "height": 42,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "THyRj",
+                          "name": "Preview Sensor Core",
+                          "fill": "$pm-ink",
+                          "width": 12,
+                          "height": 12
+                        },
+                        {
+                          "type": "text",
+                          "id": "b3Bnx",
+                          "name": "Preview Sensor Label",
+                          "fill": "$pm-ink",
+                          "content": "BLE HEART RATE SERVICE",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "path",
+                      "id": "s92Vv3",
+                      "x": 250,
+                      "y": 374,
+                      "name": "Preview Sensor Link",
+                      "geometry": "M0 0l0 28",
+                      "viewBox": [
+                        0,
+                        0,
+                        1,
+                        28
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 1,
+                      "height": 28,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qDvM0",
+                  "name": "How It Works Text",
+                  "width": 604,
+                  "layout": "vertical",
+                  "gap": 34,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lIEaW",
+                      "name": "How Section Label",
+                      "fill": "$pm-muted",
+                      "content": "HOW IT WORKS",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l17dc",
+                      "name": "How Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A heart rate monitor becomes the controller.",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 48,
+                      "fontWeight": "620"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AvZ5l",
+                      "name": "How Steps",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 18,
+                      "padding": [
+                        8,
+                        0,
+                        4,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qM0jQ",
+                          "name": "Step 01",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "IoMHQ",
+                              "name": "Step 01 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "lMwIR",
+                                  "name": "Step 01 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "01",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "s7sMeX",
+                              "name": "Step 01 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Connect your Bluetooth heart rate monitor.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pK2NX",
+                          "name": "Step 02",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "K5oVDb",
+                              "name": "Step 02 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "f5Z3J",
+                                  "name": "Step 02 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "02",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "fbLAp",
+                              "name": "Step 02 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Calibrate your resting heart rate.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "iEvIU",
+                          "name": "Step 03",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "p1i7hM",
+                              "name": "Step 03 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "owKCr",
+                                  "name": "Step 03 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "03",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "GQlLI",
+                              "name": "Step 03 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Navigate the maze by raising and lowering your pulse.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Y2kdl",
+                      "name": "How CTA Try Pulse Maze",
+                      "fill": "$pm-ink",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": [
+                        15,
+                        24
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DeiNb",
+                          "name": "How CTA Label",
+                          "fill": "$pm-bg",
+                          "content": "Try Pulse Maze",
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "nzdxk",
+              "x": 0,
+              "y": 759,
+              "name": "How Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "p3EL3",
+          "name": "Section 3 Compatibility",
+          "clip": true,
+          "width": "fill_container",
+          "height": 820,
+          "fill": "$pm-soft",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dvDqt",
+              "x": 120,
+              "y": 104,
+              "name": "Compatibility Container",
+              "width": 1200,
+              "height": 612,
+              "layout": "vertical",
+              "gap": 42,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hYLbe",
+                  "name": "Compatibility Intro",
+                  "width": 820,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xrlBR",
+                      "name": "Compatibility Label",
+                      "fill": "$pm-muted",
+                      "content": "COMPATIBILITY",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "h9JOxk",
+                      "name": "Compatibility Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Works with standard Bluetooth heart rate monitors",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 54,
+                      "fontWeight": "620"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d9JEW",
+                  "name": "Compatibility Card",
+                  "width": "fill_container",
+                  "height": 358,
+                  "fill": "$pm-bg",
+                  "cornerRadius": 20,
+                  "stroke": "$pm-line",
+                  "strokeWidth": 1,
+                  "gap": 64,
+                  "padding": [
+                    44,
+                    48
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "X8rS4s",
+                      "name": "Supported Devices List",
+                      "width": 520,
+                      "layout": "vertical",
+                      "gap": 18,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "G6Wh6X",
+                          "name": "Device Magene H303",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "weyPs",
+                              "name": "Check Magene H303",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "W5n6Q",
+                                  "name": "Check Icon Magene H303",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "A5QjP",
+                              "name": "Device Label Magene H303",
+                              "fill": "$pm-ink",
+                              "content": "Magene H303",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nW5JG",
+                          "name": "Device Polar H10",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "s7B5Le",
+                              "name": "Check Polar H10",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "UcVQ7",
+                                  "name": "Check Icon Polar H10",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "C4awU",
+                              "name": "Device Label Polar H10",
+                              "fill": "$pm-ink",
+                              "content": "Polar H10",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xxHu6",
+                          "name": "Device Polar H9",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Q2Dtq",
+                              "name": "Check Polar H9",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "XoAkn",
+                                  "name": "Check Icon Polar H9",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "DnE8k",
+                              "name": "Device Label Polar H9",
+                              "fill": "$pm-ink",
+                              "content": "Polar H9",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "O0ih8",
+                          "name": "Device Wahoo Tickr",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kaj7q",
+                              "name": "Check Wahoo Tickr",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "R8WqI9",
+                                  "name": "Check Icon Wahoo Tickr",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "vb80Q",
+                              "name": "Device Label Wahoo Tickr",
+                              "fill": "$pm-ink",
+                              "content": "Wahoo Tickr",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Wk2R4",
+                          "name": "Device Garmin HRM",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "bNjCC",
+                              "name": "Check Garmin HRM",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "Z7rbOz",
+                                  "name": "Check Icon Garmin HRM",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "KZwT4",
+                              "name": "Device Label Garmin HRM",
+                              "fill": "$pm-ink",
+                              "content": "Garmin HRM",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "tMiZO",
+                          "name": "Device Any BLE Heart Rate Service device",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "D2zsma",
+                              "name": "Check Any BLE Heart Rate Service device",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "Nh5HD",
+                                  "name": "Check Icon Any BLE Heart Rate Service device",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "CquQ4",
+                              "name": "Device Label Any BLE Heart Rate Service device",
+                              "fill": "$pm-ink",
+                              "content": "Any BLE Heart Rate Service device",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NQY80",
+                      "name": "Compatibility Copy",
+                      "width": 472,
+                      "layout": "vertical",
+                      "gap": 26,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "CFCGU",
+                          "name": "Compatibility Paragraph",
+                          "fill": "$pm-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Pulse Maze uses the standard Bluetooth Heart Rate Service supported by most modern chest straps.",
+                          "lineHeight": 1.45,
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 20,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rPe53",
+                          "name": "Compatibility CTA Connect Device",
+                          "fill": "$pm-ink",
+                          "cornerRadius": 999,
+                          "stroke": "$pm-ink",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            15,
+                            24
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VIaG5",
+                              "name": "Compatibility CTA Label",
+                              "fill": "$pm-bg",
+                              "content": "Connect your device",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "HriQn",
+                          "name": "Compatibility Technical Note",
+                          "fill": "$pm-muted",
+                          "content": "BLE HEART RATE SERVICE / 0x180D",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "DC6Zk",
+              "x": 0,
+              "y": 819,
+              "name": "Compatibility Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Dx9jC",
+          "name": "Section 4 Final CTA",
+          "clip": true,
+          "width": "fill_container",
+          "height": 620,
+          "fill": "$pm-ink",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "iNwNB",
+              "x": 420,
+              "y": 28,
+              "name": "Final CTA Pulse Construction Hints",
+              "opacity": 0.18,
+              "width": 600,
+              "height": 560,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "tvDct",
+                  "x": 92,
+                  "y": 278,
+                  "name": "Final CTA Pulse Trace",
+                  "geometry": "M0 27l86 0 28-21 28 43 32-22 76 0 24-12 26 24 26-12 90 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    416,
+                    54
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 416,
+                  "height": 54,
+                  "stroke": "$pm-bg",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "eoeTy",
+                  "x": 136,
+                  "y": 78,
+                  "name": "Final CTA Upper Arc",
+                  "geometry": "M0 176c68-176 260-176 328 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    328,
+                    224
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 328,
+                  "height": 224,
+                  "stroke": "$pm-bg",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "P3gi71",
+                  "x": 154,
+                  "y": 284,
+                  "name": "Final CTA Lower Arc",
+                  "geometry": "M0 0c66 154 226 154 292 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    292,
+                    160
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 292,
+                  "height": 160,
+                  "stroke": "$pm-bg",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "q3GLn",
+                  "x": 300,
+                  "y": 112,
+                  "name": "Final CTA Center Guide",
+                  "geometry": "M0 0l0 336",
+                  "viewBox": [
+                    0,
+                    0,
+                    1,
+                    336
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1,
+                  "height": 336,
+                  "stroke": "$pm-bg",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "ellipse",
+                  "id": "hVgPn",
+                  "x": 408,
+                  "y": 300,
+                  "name": "Final CTA Signal Point",
+                  "fill": "$pm-bg",
+                  "width": 7,
+                  "height": 7
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RWeRt",
+              "x": 300,
+              "y": 130,
+              "name": "Final CTA Content",
+              "width": 840,
+              "layout": "vertical",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cS5Tp",
+                  "name": "Final CTA Label",
+                  "fill": "#FFFFFF99",
+                  "content": "PLAY IN THE BROWSER",
+                  "fontFamily": "$pm-font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "yxLSn",
+                  "name": "Final CTA Headline",
+                  "fill": "$pm-bg",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Ready to control a game with your heartbeat?",
+                  "lineHeight": 1.05,
+                  "textAlign": "center",
+                  "fontFamily": "$pm-font-heading",
+                  "fontSize": 58,
+                  "fontWeight": "620"
+                },
+                {
+                  "type": "text",
+                  "id": "jv4Mw",
+                  "name": "Final CTA Paragraph",
+                  "fill": "#FFFFFFB8",
+                  "textGrowth": "fixed-width",
+                  "width": 660,
+                  "content": "No downloads. No account. Just connect your heart rate monitor and play.",
+                  "lineHeight": 1.45,
+                  "textAlign": "center",
+                  "fontFamily": "$pm-font-body",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "y2Kgh",
+                  "name": "Final CTA Actions",
+                  "layout": "vertical",
+                  "gap": 17,
+                  "padding": [
+                    16,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hJFyn",
+                      "name": "Final CTA Play Now Button",
+                      "fill": "$pm-bg",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-bg",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": [
+                        19,
+                        34
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "K8gtOD",
+                          "name": "Final CTA Play Now Label",
+                          "fill": "$pm-ink",
+                          "content": "Play Now",
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 16,
+                          "fontWeight": "650"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "LYxmv",
+                      "name": "Final CTA Small Text",
+                      "fill": "#FFFFFF99",
+                      "content": "Works directly in Chrome using Web Bluetooth.",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "t0pbA",
+      "x": 1560,
+      "y": 0,
+      "name": "Pulse Maze Landing Page Dark Theme",
+      "theme": {
+        "mode": "dark"
+      },
+      "clip": true,
+      "width": 1440,
+      "fill": "$pm-bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "o2ZYu",
+          "name": "Section 1 Hero",
+          "clip": true,
+          "width": "fill_container",
+          "height": 920,
+          "fill": "$pm-bg",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "G06pK",
+              "x": 0,
+              "y": 0,
+              "name": "Hero SVG Maze Background 200 Percent",
+              "opacity": 0.2,
+              "clip": true,
+              "width": 1440,
+              "height": 920,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "yZ5fJ",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Main Circuit",
+                  "geometry": "M250 232h254v-124h430v62h-284v124h446v60h-680v-122h374v-162h400",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "S7RZ05",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Upper Corridor",
+                  "geometry": "M312 150h126v-94h626v62h-222v108h352",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "B9dLo",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Lower Corridor",
+                  "geometry": "M286 318h262v84h468v-98h-274v-84h-152",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "qyuzB",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Left Return",
+                  "geometry": "M360 82v120h-146v182h426v-54",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "nJ4aj",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Right Return",
+                  "geometry": "M1084 68v176h148v164h-384v-52",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "YbHtd",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Central Spur A",
+                  "geometry": "M514 168h202v-56h104",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "S3BU9Q",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Central Spur B",
+                  "geometry": "M918 248h-136v66h-176",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "wTfgu",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Center Step",
+                  "geometry": "M698 182v68h168v-48",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "VfgxE",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Bottom Step",
+                  "geometry": "M470 364h236v62h224",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "VpH69",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Top Step",
+                  "geometry": "M540 34v58h180v-58h180",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "p07wK",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Outer Top Hint",
+                  "geometry": "M180 28h1080",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "path",
+                  "id": "h0dREH",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Maze Outer Bottom Hint",
+                  "geometry": "M192 432h1056",
+                  "viewBox": [
+                    360,
+                    0,
+                    720,
+                    460
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1440,
+                  "height": 920,
+                  "stroke": "$pm-ink",
+                  "strokeWidth": 1,
+                  "strokeLinecap": "square"
+                },
+                {
+                  "type": "ellipse",
+                  "id": "LP23W",
+                  "x": 848,
+                  "y": 407,
+                  "name": "Maze Small Position Dot",
+                  "fill": "$pm-ink",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rA8UA",
+              "x": 120,
+              "y": 116,
+              "name": "Hero Content Container",
+              "width": 1200,
+              "height": 650,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jFKKW",
+                  "x": 190,
+                  "y": 118,
+                  "name": "Hero Text Stack",
+                  "width": 820,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vrQtQ",
+                      "name": "Hero Eyebrow",
+                      "fill": "$pm-muted",
+                      "content": "PULSE MAZE",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KS22g",
+                      "name": "Hero Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Test your heart rate monitor in a game.",
+                      "lineHeight": 0.98,
+                      "textAlign": "center",
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 72,
+                      "fontWeight": "620"
+                    },
+                    {
+                      "type": "text",
+                      "id": "G0d4pN",
+                      "name": "Hero Subtitle",
+                      "fill": "$pm-muted",
+                      "textGrowth": "fixed-width",
+                      "width": 720,
+                      "content": "Pulse Maze is a browser game that lets you control a maze using your heartbeat. Connect any Bluetooth heart rate monitor and start playing instantly.",
+                      "lineHeight": 1.45,
+                      "textAlign": "center",
+                      "fontFamily": "$pm-font-body",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "p78Ba",
+                      "name": "Hero Actions",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": [
+                        18,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ASPoR",
+                          "name": "Primary CTA Try Pulse Maze",
+                          "fill": "$pm-ink",
+                          "cornerRadius": 999,
+                          "stroke": "$pm-ink",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            17,
+                            28
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aYV8v",
+                              "name": "Primary CTA Label",
+                              "fill": "$pm-bg",
+                              "content": "Try Pulse Maze",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "oYs4g",
+                          "name": "Hero Secondary Note",
+                          "fill": "$pm-muted",
+                          "content": "No installation • Web Bluetooth • Free",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "WenPS",
+              "x": 0,
+              "y": 919,
+              "name": "Hero Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K1Yi9",
+          "name": "Section 2 How It Works",
+          "clip": true,
+          "width": "fill_container",
+          "height": 760,
+          "fill": "$pm-bg",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "z0QDf",
+              "x": 120,
+              "y": 96,
+              "name": "How It Works Container",
+              "width": 1200,
+              "height": 560,
+              "gap": 96,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oFA8X",
+                  "name": "Abstract Product Preview Diagram",
+                  "width": 500,
+                  "height": 500,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "EKdmI",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Preview Boundary",
+                      "fill": "#FFFFFF00",
+                      "width": 500,
+                      "height": 500,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 22,
+                      "id": "NGPT3",
+                      "x": 46,
+                      "y": 58,
+                      "name": "Preview Browser Window",
+                      "fill": "$pm-bg",
+                      "width": 408,
+                      "height": 316,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": [
+                        22,
+                        22,
+                        0,
+                        0
+                      ],
+                      "id": "ghYFV",
+                      "x": 46,
+                      "y": 58,
+                      "name": "Preview Browser Toolbar",
+                      "fill": "$pm-bg",
+                      "width": 408,
+                      "height": 42,
+                      "stroke": "$pm-line",
+                      "strokeWidth": {
+                        "bottom": 1
+                      }
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "Ug1b5",
+                      "x": 72,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 1",
+                      "fill": "$pm-ink",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "Zq8V5",
+                      "x": 90,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 2",
+                      "fill": "$pm-line",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "RaUh9",
+                      "x": 108,
+                      "y": 75,
+                      "name": "Preview Toolbar Dot 3",
+                      "fill": "$pm-line",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Vl12v",
+                      "x": 304,
+                      "y": 72,
+                      "name": "Preview Url Pill",
+                      "width": 112,
+                      "height": 14,
+                      "fill": "$pm-soft",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 12,
+                      "id": "yA2GD",
+                      "x": 74,
+                      "y": 128,
+                      "name": "Preview Game Surface",
+                      "fill": "$pm-soft",
+                      "width": 352,
+                      "height": 168,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "path",
+                      "id": "ML165",
+                      "x": 96,
+                      "y": 154,
+                      "name": "Preview Game Route Primary",
+                      "geometry": "M0 58h58v-40h86v64h72v-44h92",
+                      "viewBox": [
+                        0,
+                        0,
+                        308,
+                        110
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 308,
+                      "height": 110,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "strokeLinecap": "square"
+                    },
+                    {
+                      "type": "path",
+                      "id": "Z3jJw",
+                      "x": 128,
+                      "y": 176,
+                      "name": "Preview Game Route Secondary",
+                      "geometry": "M0 20h54v-20h74v52h116",
+                      "viewBox": [
+                        0,
+                        0,
+                        244,
+                        70
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 244,
+                      "height": 70,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "strokeLinecap": "square"
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "o0JU3P",
+                      "x": 336,
+                      "y": 188,
+                      "name": "Preview Player Dot",
+                      "fill": "$pm-ink",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "SMAk5",
+                      "x": 116,
+                      "y": 208,
+                      "name": "Preview Target Dot",
+                      "fill": "$pm-bg",
+                      "width": 8,
+                      "height": 8,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V2TQ1",
+                      "x": 86,
+                      "y": 314,
+                      "name": "Preview Live Status Pill",
+                      "width": 126,
+                      "height": 28,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "qE3Mj",
+                          "name": "Preview Live Status Dot",
+                          "fill": "$pm-ink",
+                          "width": 7,
+                          "height": 7
+                        },
+                        {
+                          "type": "text",
+                          "id": "l8jMH0",
+                          "name": "Preview Live Status Text",
+                          "fill": "$pm-ink",
+                          "content": "CONNECTED",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zriGz",
+                      "x": 224,
+                      "y": 306,
+                      "name": "Preview HR Telemetry Panel",
+                      "width": 188,
+                      "height": 48,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 14,
+                      "stroke": "$pm-line",
+                      "strokeWidth": 1,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fDc4n",
+                      "x": 244,
+                      "y": 319,
+                      "name": "Preview BPM Value",
+                      "fill": "$pm-ink",
+                      "content": "78",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Zw3PB",
+                      "x": 274,
+                      "y": 324,
+                      "name": "Preview BPM Label",
+                      "fill": "$pm-muted",
+                      "content": "BPM",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "path",
+                      "id": "K9xJpl",
+                      "x": 322,
+                      "y": 322,
+                      "name": "Preview BPM Trace",
+                      "geometry": "M0 9l14 0 8-8 9 16 9-8 15 0 7-4 8 7",
+                      "viewBox": [
+                        0,
+                        0,
+                        70,
+                        18
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 70,
+                      "height": 18,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "T1EHuV",
+                      "x": 150,
+                      "y": 402,
+                      "name": "Preview Sensor Capsule",
+                      "width": 200,
+                      "height": 42,
+                      "fill": "$pm-bg",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "d0oKt",
+                          "name": "Preview Sensor Core",
+                          "fill": "$pm-ink",
+                          "width": 12,
+                          "height": 12
+                        },
+                        {
+                          "type": "text",
+                          "id": "sGCj0",
+                          "name": "Preview Sensor Label",
+                          "fill": "$pm-ink",
+                          "content": "BLE HEART RATE SERVICE",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "path",
+                      "id": "p8C1AB",
+                      "x": 250,
+                      "y": 374,
+                      "name": "Preview Sensor Link",
+                      "geometry": "M0 0l0 28",
+                      "viewBox": [
+                        0,
+                        0,
+                        1,
+                        28
+                      ],
+                      "fill": "#FFFFFF00",
+                      "width": 1,
+                      "height": 28,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B574G8",
+                  "name": "How It Works Text",
+                  "width": 604,
+                  "layout": "vertical",
+                  "gap": 34,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ud9Gz",
+                      "name": "How Section Label",
+                      "fill": "$pm-muted",
+                      "content": "HOW IT WORKS",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qnBHy",
+                      "name": "How Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A heart rate monitor becomes the controller.",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 48,
+                      "fontWeight": "620"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "k79ei1",
+                      "name": "How Steps",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 18,
+                      "padding": [
+                        8,
+                        0,
+                        4,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "gmKHb",
+                          "name": "Step 01",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "EUlBg",
+                              "name": "Step 01 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Bo2dK",
+                                  "name": "Step 01 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "01",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "vy9B2",
+                              "name": "Step 01 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Connect your Bluetooth heart rate monitor.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "U7Tbx",
+                          "name": "Step 02",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "U6NKP",
+                              "name": "Step 02 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "nwTCj",
+                                  "name": "Step 02 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "02",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "W8MLE",
+                              "name": "Step 02 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Calibrate your resting heart rate.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xqcLr",
+                          "name": "Step 03",
+                          "width": "fill_container",
+                          "gap": 20,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "BuskO",
+                              "name": "Step 03 Number",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "xcfra",
+                                  "name": "Step 03 Number Text",
+                                  "fill": "$pm-ink",
+                                  "content": "03",
+                                  "fontFamily": "$pm-font-mono",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "f6qRYq",
+                              "name": "Step 03 Text",
+                              "fill": "$pm-ink",
+                              "textGrowth": "fixed-width",
+                              "width": 430,
+                              "content": "Navigate the maze by raising and lowering your pulse.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rReho",
+                      "name": "How CTA Try Pulse Maze",
+                      "fill": "$pm-ink",
+                      "cornerRadius": 999,
+                      "stroke": "$pm-ink",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": [
+                        15,
+                        24
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "cnTyO",
+                          "name": "How CTA Label",
+                          "fill": "$pm-bg",
+                          "content": "Try Pulse Maze",
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "g4MDbT",
+              "x": 0,
+              "y": 759,
+              "name": "How Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NXFye",
+          "name": "Section 3 Compatibility",
+          "clip": true,
+          "width": "fill_container",
+          "height": 820,
+          "fill": "$pm-soft",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "d24Ic",
+              "x": 120,
+              "y": 104,
+              "name": "Compatibility Container",
+              "width": 1200,
+              "height": 612,
+              "layout": "vertical",
+              "gap": 42,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vxtdt",
+                  "name": "Compatibility Intro",
+                  "width": 820,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZlbKD",
+                      "name": "Compatibility Label",
+                      "fill": "$pm-muted",
+                      "content": "COMPATIBILITY",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vX1x3",
+                      "name": "Compatibility Headline",
+                      "fill": "$pm-ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Works with standard Bluetooth heart rate monitors",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$pm-font-heading",
+                      "fontSize": 54,
+                      "fontWeight": "620"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Wk1gS",
+                  "name": "Compatibility Card",
+                  "width": "fill_container",
+                  "height": 358,
+                  "fill": "$pm-bg",
+                  "cornerRadius": 20,
+                  "stroke": "$pm-line",
+                  "strokeWidth": 1,
+                  "gap": 64,
+                  "padding": [
+                    44,
+                    48
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "cbyRs",
+                      "name": "Supported Devices List",
+                      "width": 520,
+                      "layout": "vertical",
+                      "gap": 18,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "pNr5q",
+                          "name": "Device Magene H303",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "k3c7C",
+                              "name": "Check Magene H303",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "K6O9DD",
+                                  "name": "Check Icon Magene H303",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Nggyz",
+                              "name": "Device Label Magene H303",
+                              "fill": "$pm-ink",
+                              "content": "Magene H303",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "wrsZb",
+                          "name": "Device Polar H10",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "q9O1qS",
+                              "name": "Check Polar H10",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "E4V9a",
+                                  "name": "Check Icon Polar H10",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "C6Ybb",
+                              "name": "Device Label Polar H10",
+                              "fill": "$pm-ink",
+                              "content": "Polar H10",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fGxwR",
+                          "name": "Device Polar H9",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "dXYEn",
+                              "name": "Check Polar H9",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "IKe5H",
+                                  "name": "Check Icon Polar H9",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "O4V9yM",
+                              "name": "Device Label Polar H9",
+                              "fill": "$pm-ink",
+                              "content": "Polar H9",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "K2f0QJ",
+                          "name": "Device Wahoo Tickr",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "sYLAP",
+                              "name": "Check Wahoo Tickr",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "gnosG",
+                                  "name": "Check Icon Wahoo Tickr",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "qWxJG",
+                              "name": "Device Label Wahoo Tickr",
+                              "fill": "$pm-ink",
+                              "content": "Wahoo Tickr",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "H9ZzSp",
+                          "name": "Device Garmin HRM",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "edNJ7",
+                              "name": "Check Garmin HRM",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "k5o6dI",
+                                  "name": "Check Icon Garmin HRM",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "pERgM",
+                              "name": "Device Label Garmin HRM",
+                              "fill": "$pm-ink",
+                              "content": "Garmin HRM",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "w1YVL",
+                          "name": "Device Any BLE Heart Rate Service device",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "rmCYt",
+                              "name": "Check Any BLE Heart Rate Service device",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "$pm-bg",
+                              "cornerRadius": 999,
+                              "stroke": "$pm-ink",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "UNwB6",
+                                  "name": "Check Icon Any BLE Heart Rate Service device",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "Material Symbols Rounded",
+                                  "fill": "$pm-ink"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "x39Jm",
+                              "name": "Device Label Any BLE Heart Rate Service device",
+                              "fill": "$pm-ink",
+                              "content": "Any BLE Heart Rate Service device",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 18,
+                              "fontWeight": "450"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V4UhZ",
+                      "name": "Compatibility Copy",
+                      "width": 472,
+                      "layout": "vertical",
+                      "gap": 26,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "b7dRh",
+                          "name": "Compatibility Paragraph",
+                          "fill": "$pm-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Pulse Maze uses the standard Bluetooth Heart Rate Service supported by most modern chest straps.",
+                          "lineHeight": 1.45,
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 20,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Tzngo",
+                          "name": "Compatibility CTA Connect Device",
+                          "fill": "$pm-ink",
+                          "cornerRadius": 999,
+                          "stroke": "$pm-ink",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            15,
+                            24
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "q0DtVf",
+                              "name": "Compatibility CTA Label",
+                              "fill": "$pm-bg",
+                              "content": "Connect your device",
+                              "fontFamily": "$pm-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZBwQw",
+                          "name": "Compatibility Technical Note",
+                          "fill": "$pm-muted",
+                          "content": "BLE HEART RATE SERVICE / 0x180D",
+                          "fontFamily": "$pm-font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "D4klFh",
+              "x": 0,
+              "y": 819,
+              "name": "Compatibility Bottom Separator",
+              "fill": "$pm-line",
+              "width": 1440,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HIB9k",
+          "name": "Section 4 Final CTA",
+          "clip": true,
+          "width": "fill_container",
+          "height": 620,
+          "fill": "#0A0A0A",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "q0RXI",
+              "x": 420,
+              "y": 28,
+              "name": "Final CTA Pulse Construction Hints",
+              "opacity": 0.18,
+              "width": 600,
+              "height": 560,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "d5l8Nq",
+                  "x": 92,
+                  "y": 278,
+                  "name": "Final CTA Pulse Trace",
+                  "geometry": "M0 27l86 0 28-21 28 43 32-22 76 0 24-12 26 24 26-12 90 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    416,
+                    54
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 416,
+                  "height": 54,
+                  "stroke": "#FFFFFF",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "gMUTF",
+                  "x": 136,
+                  "y": 78,
+                  "name": "Final CTA Upper Arc",
+                  "geometry": "M0 176c68-176 260-176 328 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    328,
+                    224
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 328,
+                  "height": 224,
+                  "stroke": "#FFFFFF",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "xK9fE",
+                  "x": 154,
+                  "y": 284,
+                  "name": "Final CTA Lower Arc",
+                  "geometry": "M0 0c66 154 226 154 292 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    292,
+                    160
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 292,
+                  "height": 160,
+                  "stroke": "#FFFFFF",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "path",
+                  "id": "VKGF0",
+                  "x": 300,
+                  "y": 112,
+                  "name": "Final CTA Center Guide",
+                  "geometry": "M0 0l0 336",
+                  "viewBox": [
+                    0,
+                    0,
+                    1,
+                    336
+                  ],
+                  "fill": "#FFFFFF00",
+                  "width": 1,
+                  "height": 336,
+                  "stroke": "#FFFFFF",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "ellipse",
+                  "id": "G9CIb",
+                  "x": 408,
+                  "y": 300,
+                  "name": "Final CTA Signal Point",
+                  "fill": "#FFFFFF",
+                  "width": 7,
+                  "height": 7
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TdUTc",
+              "x": 300,
+              "y": 130,
+              "name": "Final CTA Content",
+              "width": 840,
+              "layout": "vertical",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JYCL2",
+                  "name": "Final CTA Label",
+                  "fill": "#FFFFFF99",
+                  "content": "PLAY IN THE BROWSER",
+                  "fontFamily": "$pm-font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "ihgGj",
+                  "name": "Final CTA Headline",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Ready to control a game with your heartbeat?",
+                  "lineHeight": 1.05,
+                  "textAlign": "center",
+                  "fontFamily": "$pm-font-heading",
+                  "fontSize": 58,
+                  "fontWeight": "620"
+                },
+                {
+                  "type": "text",
+                  "id": "WqIEc",
+                  "name": "Final CTA Paragraph",
+                  "fill": "#FFFFFFB8",
+                  "textGrowth": "fixed-width",
+                  "width": 660,
+                  "content": "No downloads. No account. Just connect your heart rate monitor and play.",
+                  "lineHeight": 1.45,
+                  "textAlign": "center",
+                  "fontFamily": "$pm-font-body",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "fWmKb",
+                  "name": "Final CTA Actions",
+                  "layout": "vertical",
+                  "gap": 17,
+                  "padding": [
+                    16,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UC57D",
+                      "name": "Final CTA Play Now Button",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 999,
+                      "stroke": "#FFFFFF",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": [
+                        19,
+                        34
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "L8ibz",
+                          "name": "Final CTA Play Now Label",
+                          "fill": "#0A0A0A",
+                          "content": "Play Now",
+                          "fontFamily": "$pm-font-body",
+                          "fontSize": 16,
+                          "fontWeight": "650"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "pD9vR",
+                      "name": "Final CTA Small Text",
+                      "fill": "#FFFFFF99",
+                      "content": "Works directly in Chrome using Web Bluetooth.",
+                      "fontFamily": "$pm-font-mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "mode": [
+      "light",
+      "dark"
+    ]
+  },
+  "variables": {
+    "pm-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#151515",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-ink": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0A0A0A",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F4F4F4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#A3A3A3",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F8F8F8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#202020",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-line": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DCDCDC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#3A3A3A",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-faint": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EEEEEE",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#2A2A2A",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "pm-font-heading": {
+      "type": "string",
+      "value": "Geist"
+    },
+    "pm-font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "pm-font-mono": {
+      "type": "string",
+      "value": "Geist Mono"
+    }
+  },
+  "fileToken": "94d111a4-f0a9-43b3-8fff-5c506ce756e0"
+}
