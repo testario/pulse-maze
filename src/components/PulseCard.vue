@@ -87,7 +87,7 @@ const lastPoint = computed(() => {
           :cy="lastPoint.y"
           r="3"
         />
-        <text v-else class="pulse-card__empty" :x="GRAPH_WIDTH / 2" :y="GRAPH_HEIGHT / 2">
+        <text v-else class="pulse-card__empty" :x="GRAPH_WIDTH / 2" :y="GRAPH_HEIGHT / 2 - 7">
           Нет данных
         </text>
       </svg>

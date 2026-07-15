@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import PulseCard from './PulseCard.vue'
+import CalibrationScreen from './CalibrationScreen.vue'
 import ConnectionScreen from './ConnectionScreen.vue'
+import FinishScreen from './FinishScreen.vue'
+import PulseCard from './PulseCard.vue'
 import { useBluetoothHeartRate } from '../composables/useBluetoothHeartRate'
 import { useGameSession } from '../composables/useGameSession'
 import { isDebugHeartRateEnabled } from '../composables/useHeartRateControl'
@@ -41,17 +43,10 @@ const showConnectionScreen = computed(() => (
     || (connectionState.value === 'connected' && gameState.value === 'connecting')
   )
 ))
+const showCalibrationScreen = computed(() => (
+  ['calibrating', 'ready', 'paused'].includes(gameState.value)
+))
 
-const gameStatus = computed(() => {
-  switch (gameState.value) {
-    case 'calibrating': return 'Калибровка'
-    case 'ready': return 'Готово к началу'
-    case 'playing': return 'Игра начата'
-    case 'paused': return 'Игра на паузе'
-    case 'finished': return 'Маршрут завершён'
-    default: return ''
-  }
-})
 </script>
 
 <template>
@@ -59,13 +54,14 @@ const gameStatus = computed(() => {
     <div class="game-header__main">
       <div class="game-header__title">
         <h1>{{ title }}</h1>
-        <div class="game-header__meta" aria-live="polite">
-          <span v-if="gameStatus">{{ gameStatus }}</span>
-          <span>{{ formattedTime }}</span>
-        </div>
       </div>
       <div class="game-header__connection">
+        <p v-if="gameState === 'playing'" class="game-header__timer" aria-live="polite">
+          {{ formattedTime }}
+        </p>
         <ConnectionScreen v-if="showConnectionScreen" />
+        <CalibrationScreen v-else-if="showCalibrationScreen" />
+        <FinishScreen v-else-if="gameState === 'finished'" />
       </div>
       <PulseCard
         class="game-header__pulse"
@@ -87,19 +83,32 @@ const gameStatus = computed(() => {
 .game-header__main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  gap: 10%;
 }
 
 .game-header__title {
-  display: grid;
-  gap: 0.45rem;
   width: 100%;
+  align-self: start;
 }
 
 .game-header__connection,
 .game-header__pulse {
   width: 100%;
+}
+
+.game-header__connection {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.game-header__timer {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  line-height: 0.9;
+  text-align: center;
 }
 
 h1 {
@@ -108,13 +117,6 @@ h1 {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-}
-
-.game-header__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  font-size: 1rem;
 }
 
 @media (max-width: 640px) {

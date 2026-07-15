@@ -178,12 +178,19 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .game-canvas-wrapper {
-  width: min(100%, 42rem, calc(100dvh - 7.5rem));
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 0;
+  width: min(100%, 42rem);
 }
 
 .game-canvas {
-  aspect-ratio: 1;
-  max-height: 100%;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 0;
   width: 100%;
 }
 
@@ -192,7 +199,6 @@ canvas {
 }
 
 .debug-panel {
-  margin-top: 0.75rem;
   border-top: 1px solid #111111;
   padding-top: 0.75rem;
   font-size: 0.8125rem;

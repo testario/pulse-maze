@@ -26,7 +26,7 @@ npm run dev
 Откройте точный адрес:
 
 ```text
-http://localhost:5173/?debugHeartRate=true
+http://localhost:5173/game?debugHeartRate=true
 ```
 
 В этом режиме BLE не используется. После 20-секундной калибровки:

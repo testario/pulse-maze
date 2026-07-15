@@ -18,7 +18,7 @@ export const RADIAL_FACTOR_MIN = -1
 export const RADIAL_FACTOR_MAX = 1
 export const STALE_BPM_TIMEOUT_MS = 3_000
 export const MAX_SESSION_DURATION_MS = 10 * 60 * 1_000
-export const PULSE_GRAPH_HISTORY_LENGTH = 40
+export const PULSE_GRAPH_HISTORY_LENGTH = 200
 
 export const MAZE_RING_COUNT = 5
 export const MAZE_SECTOR_COUNT = 12
