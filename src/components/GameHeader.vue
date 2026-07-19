@@ -105,7 +105,6 @@ const showCalibrationScreen = computed(() => (
   width: 100%;
   align-items: flex-start;
   align-self: start;
-  justify-content: space-between;
   gap: 0.75rem;
 }
 
