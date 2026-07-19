@@ -113,7 +113,7 @@ function getPlayerAngularDirection() {
 }
 
 function getPlayerRadialFactor() {
-  if (isDebugHeartRate.value) {
+  if (isDebugHeartRate.value && isMotionInputActive.value) {
     return getMotionRadialFactor(playerPosition.value.angle) * DEBUG_MOTION_RADIAL_SENSITIVITY
   }
 

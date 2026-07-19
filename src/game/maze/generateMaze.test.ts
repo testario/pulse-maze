@@ -6,9 +6,9 @@ import {
   MIN_SOLUTION_BRANCHES,
   MIN_SOLUTION_PATH_CELLS,
 } from '../config'
-import { generateMaze } from './generateMaze'
+import { generateMaze, generateMazeWithSteps } from './generateMaze'
 import { getMazeNeighbor } from './mazeNeighbors'
-import { MAZE_WALLS, OPPOSITE_MAZE_WALL } from './mazeWalls'
+import { createClosedMaze, MAZE_WALLS, openMazePassage, OPPOSITE_MAZE_WALL } from './mazeWalls'
 import type { PolarMaze } from './mazeTypes'
 import { countPathBranches, hasInwardStep, validateMaze } from './validateMaze'
 
@@ -45,6 +45,25 @@ describe('generateMaze', () => {
 
     expect(centerExitSectors.size).toBeGreaterThan(1)
     expect(exitSectors.size).toBeGreaterThan(1)
+  })
+
+  it('возвращает шаги, которые воспроизводят итоговый лабиринт', () => {
+    const generation = generateMazeWithSteps(createSeededRandom(20260719))
+    const replayedMaze = createClosedMaze(
+      generation.maze.centerExitSector,
+      generation.maze.exitSector,
+    )
+
+    for (const step of generation.steps) {
+      if (step.type !== 'backtrack') {
+        openMazePassage(replayedMaze, step.coordinate, step.wall)
+      }
+    }
+
+    expect(generation.steps[0]).toMatchObject({ type: 'start', wall: 'inner' })
+    expect(generation.steps[generation.steps.length - 1]).toMatchObject({ type: 'exit', wall: 'outer' })
+    expect(generation.steps.some((step) => step.type === 'backtrack')).toBe(true)
+    expect(replayedMaze).toEqual(generation.maze)
   })
 })
 

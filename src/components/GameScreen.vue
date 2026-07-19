@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 import GameCanvas from './GameCanvas.vue'
 import GameGuideDialog from './GameGuideDialog.vue'
 import GameHeader from './GameHeader.vue'
+import MazeGenerationPreview from './MazeGenerationPreview.vue'
 import { useGameTranslations } from '../composables/useGameTranslations'
 import { useLanguagePreferences, type Language } from '../composables/useLanguagePreferences'
 
 const GAME_GUIDE_SEEN_STORAGE_KEY = 'pulse-maze-game-guide-seen'
 
+const route = useRoute()
 const isGameGuideOpen = ref(false)
 const {
   initializePreferences,
   setLanguage,
 } = useLanguagePreferences()
 const { gameText, language } = useGameTranslations()
+const isMazeGenerationPreview = computed(() => route.query.stepMazeGen !== undefined)
 const nextLanguage = computed<Language>(() => (language.value === 'ru' ? 'en' : 'ru'))
 
 function toggleLanguage() {
@@ -50,16 +54,17 @@ function markGameGuideAsSeen() {
 onMounted(() => {
   initializePreferences()
 
-  if (!hasSeenGameGuide()) {
+  if (!isMazeGenerationPreview.value && !hasSeenGameGuide()) {
     isGameGuideOpen.value = true
   }
 })
 </script>
 
 <template>
-  <div class="app-shell">
-    <GameHeader />
+  <div class="app-shell" :class="{ 'app-shell--generation': isMazeGenerationPreview }">
+    <GameHeader v-if="!isMazeGenerationPreview" />
     <button
+      v-if="!isMazeGenerationPreview"
       class="game-guide-button"
       type="button"
       :aria-label="gameText.guideButtonLabel"
@@ -76,9 +81,10 @@ onMounted(() => {
       {{ nextLanguage.toUpperCase() }}
     </button>
     <main class="game-area">
-      <GameCanvas />
+      <MazeGenerationPreview v-if="isMazeGenerationPreview" />
+      <GameCanvas v-else />
     </main>
-    <GameGuideDialog v-if="isGameGuideOpen" @close="closeGameGuide" />
+    <GameGuideDialog v-if="!isMazeGenerationPreview && isGameGuideOpen" @close="closeGameGuide" />
   </div>
 </template>
 
@@ -90,6 +96,10 @@ onMounted(() => {
   height: 100dvh;
   overflow: hidden;
   padding: 1.5rem;
+}
+
+.app-shell--generation {
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .game-guide-button {

@@ -7,42 +7,73 @@ import {
 } from '../config'
 import { getMazeNeighbor, getWallToNeighbor } from './mazeNeighbors'
 import { createClosedMaze, MAZE_WALLS, openMazePassage } from './mazeWalls'
-import type { MazeCellCoordinate, PolarMaze } from './mazeTypes'
+import type { MazeCellCoordinate, MazeWall, PolarMaze } from './mazeTypes'
 import { countPathBranches, findPathFromCenter, hasInwardStep, validateMaze } from './validateMaze'
 
 type RandomSource = () => number
 
+export type MazeGenerationStep = MazePassageGenerationStep | MazeBacktrackGenerationStep
+
+export interface MazeGenerationResult {
+  maze: PolarMaze
+  steps: MazeGenerationStep[]
+}
+
+interface MazePassageGenerationStep {
+  type: 'start' | 'carve' | 'exit'
+  coordinate: MazeCellCoordinate
+  wall: MazeWall
+  activeCell: MazeCellCoordinate
+}
+
+interface MazeBacktrackGenerationStep {
+  type: 'backtrack'
+  activeCell: MazeCellCoordinate
+}
+
 /** Генерирует связный полярный лабиринт randomized DFS с обязательным движением к центру. */
 export function generateMaze(random: RandomSource = Math.random): PolarMaze {
-  for (let attempt = 0; attempt < MAX_MAZE_GENERATION_ATTEMPTS; attempt += 1) {
-    const maze = createMaze(random)
+  return generateMazeWithSteps(random).maze
+}
 
-    if (!maze) {
+/** Генерирует лабиринт и возвращает шаги, из которых состоит его построение. */
+export function generateMazeWithSteps(random: RandomSource = Math.random): MazeGenerationResult {
+  for (let attempt = 0; attempt < MAX_MAZE_GENERATION_ATTEMPTS; attempt += 1) {
+    const generation = createMaze(random)
+
+    if (!generation) {
       continue
     }
 
-    const validation = validateMaze(maze)
+    const validation = validateMaze(generation.maze)
 
     if (
       validation.isValid &&
       validation.pathToExit.length >= MIN_SOLUTION_PATH_CELLS &&
       hasInwardStep(validation.pathToExit) &&
-      countPathBranches(maze, validation.pathToExit) >= MIN_SOLUTION_BRANCHES
+      countPathBranches(generation.maze, validation.pathToExit) >= MIN_SOLUTION_BRANCHES
     ) {
-      return maze
+      return generation
     }
   }
 
   throw new Error('Не удалось создать корректный лабиринт.')
 }
 
-function createMaze(random: RandomSource): PolarMaze | null {
+function createMaze(random: RandomSource): MazeGenerationResult | null {
   const centerExitSector = getRandomSector(random)
   const maze = createClosedMaze(centerExitSector, 0)
   const start = { ring: 0, sector: centerExitSector }
+  const steps: MazeGenerationStep[] = []
 
   openMazePassage(maze, start, 'inner')
-  carveDepthFirstTree(maze, start, random)
+  steps.push({
+    type: 'start',
+    coordinate: start,
+    wall: 'inner',
+    activeCell: start,
+  })
+  carveDepthFirstTree(maze, start, random, steps)
 
   const exitCandidates = getExitCandidates(maze)
 
@@ -53,14 +84,21 @@ function createMaze(random: RandomSource): PolarMaze | null {
   const exit = exitCandidates[getRandomIndex(random, exitCandidates.length)]
   maze.exitSector = exit.sector
   openMazePassage(maze, { ring: MAZE_RING_COUNT - 1, sector: exit.sector }, 'outer')
+  steps.push({
+    type: 'exit',
+    coordinate: exit,
+    wall: 'outer',
+    activeCell: exit,
+  })
 
-  return maze
+  return { maze, steps }
 }
 
 function carveDepthFirstTree(
   maze: PolarMaze,
   start: MazeCellCoordinate,
   random: RandomSource,
+  steps: MazeGenerationStep[],
 ) {
   const visitedCells = new Set([getCellId(start)])
   const stack = [start]
@@ -71,6 +109,12 @@ function carveDepthFirstTree(
 
     if (unvisitedNeighbors.length === 0) {
       stack.pop()
+      const previous = stack[stack.length - 1]
+
+      if (previous) {
+        steps.push({ type: 'backtrack', activeCell: previous })
+      }
+
       continue
     }
 
@@ -84,6 +128,12 @@ function carveDepthFirstTree(
     openMazePassage(maze, current, wall)
     visitedCells.add(getCellId(next))
     stack.push(next)
+    steps.push({
+      type: 'carve',
+      coordinate: current,
+      wall,
+      activeCell: next,
+    })
   }
 }
 
